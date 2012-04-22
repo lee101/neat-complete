@@ -1,0 +1,20 @@
+==Prerequisites
+node.js - http://nodejs.org/
+brew install node
+
+node package manager - http://npmjs.org/
+curl http://npmjs.org/install.sh | sh
+
+coffeescript
+npm install coffee-script
+
+sass gem
+gem install sass
+
+
+==Development Compiling
+cake watch
+
+==Production Compiling
+cake build
+

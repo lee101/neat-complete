@@ -1,0 +1,13 @@
+.nc_container{
+  border:solid 1px #000;
+  background:white;
+  ul.nc_list{
+    list-style:none;
+    padding:0;
+    margin:0;
+
+    li.nc_item{
+      cursor:pointer;
+    }
+  }
+}
