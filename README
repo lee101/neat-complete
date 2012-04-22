@@ -6,7 +6,10 @@ node package manager - http://npmjs.org/
 curl http://npmjs.org/install.sh | sh
 
 coffeescript
-npm install coffee-script
+npm install -g coffee-script
+
+uglifyjs
+npm install -g uglify-js
 
 sass gem
 gem install sass
