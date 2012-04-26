@@ -1,0 +1,11 @@
+body {
+  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+.navbar h1 a.brand{
+  font-weight: bold;
+  color:#999;
+  text-shadow: rgba(0,0,0,0.8) 0 1px 0;
+}
+.hero-unit{
+  text-shadow:rgba(255,255,255,0.5) 0 1px 0;
+}

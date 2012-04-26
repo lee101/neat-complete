@@ -15,7 +15,7 @@
   *
 ###
 
-window.NeatComplete or= {}
+window.NeatComplete ?= {}
 
 ###*
   * Compiled from src/helpers.coffee

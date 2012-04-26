@@ -22,7 +22,7 @@ task 'build', 'Build lib/ from src/', ->
   
 
     
-task 'watch', 'Watch src/ for changes', ->
+task 'watch', 'Watch src files for changes', ->
   coffee  = spawn 'coffee', ['-w', '-l','-j', 'lib/neat_complete.js', '-c', 'src/coffee']
   output coffee
   sass    = spawn 'sass', ['-t','expanded','-l','--watch','src/scss/style.scss:lib/neat_complete.css']

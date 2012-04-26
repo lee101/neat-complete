@@ -1,13 +1,14 @@
-.nc_container{
-  border:solid 1px #000;
+ul.nc_list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  border:solid 1px black;
   background:white;
-  ul.nc_list{
-    list-style:none;
-    padding:0;
-    margin:0;
-
-    li.nc_item{
-      cursor:pointer;
+  li.nc_item{
+    cursor:pointer;
+    &.nc_hover{
+     background-color:steelblue;
+     color:white;
     }
   }
 }
