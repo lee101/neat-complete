@@ -1,3 +1,84 @@
+var input, widget;
+var birds = ["kakapo","kea","kiwi","pukeko","moa","tui","weka"];
+
+function addInputAndWidget(){
+  input = $("<input>").prop("type","text").appendTo($("body"));
+  widget = new NeatComplete.Widget(input[0]);
+  deepEqual(widget.element, input[0], "widget have set element");
+  ok($("ul.nc_list"),"should have appended output list")
+}
+function removeElements(){
+  input.remove();
+  $("ul.nc_list").remove();
+  widget = null;
+}
+
+module("Array Search",{
+  setup: function(){
+    addInputAndWidget();
+    widget.addService("mock_array",function(query,response_fn){
+      results = [];
+      $.each(birds,function(i,bird){
+        if (bird.indexOf(query)==0){
+          results.push({value:bird,score:10});
+        }
+      });
+      response_fn(query,results);
+    });
+  }, teardown:function(){
+    removeElements();
+  }
+});
+
+test("Show 'k' results",function(){
+  input.val("k");
+  widget._getSuggestions();
+  equal($("li.nc_item",widget.output).length, 3,"should show 3 results");
+});
+
+test("Select first match",function(){
+  input.val("k");
+  widget._getSuggestions();
+  equal($("li.nc_item",widget.output).length, 3,"should show 3 results");
+  widget.highlighted = widget.results[0];
+  widget.selectHighlighted();
+  equal(widget.element.value,"kakapo","input should be populated with first result");
+});
+
+test("Show no matches",function(){
+  input.val("asdf");
+  widget._getSuggestions();
+  equal($("li.nc_item",widget.output).length, 0,"should show no results");
+});
+
+
+module("Ajax Search",{
+  setup:function(){
+    addInputAndWidget();
+    widget.addService("mock_ajax",function(query,response_fn){
+      $.getJSON("mocks/"+escape(query)+".json",{},function(data){
+        results = $.map(data.results,function(bird){
+          return {value:bird,score:100};
+        });
+        response_fn(query,results);
+      });
+    });
+  }, teardown:function(){
+    removeElements();
+  }
+});
+
+asyncTest("Show 'k' results",function(){
+  input.val("k");
+  widget.on("update:results",function(){
+    equal($("li.nc_item",widget.output).length, 3,"should show 3 results");
+    start()
+  });
+  widget._getSuggestions();
+});
+
+
+
 // // Let's test this function  
 // function isEven(val) {  
 //     return val % 2 === 0;  

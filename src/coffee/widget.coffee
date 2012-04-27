@@ -22,7 +22,14 @@ class NeatComplete.Widget
   addService:(name,search_function)->
     @services.push new NeatComplete._Service(this,name,search_function)
 
-
+  on:(event_name,callback)->
+    @subs ?= {}
+    @subs[event_name] ?= []
+    @subs[event_name].push(callback)
+  
+  trigger:(event_name,args...)->
+    callback(args...) for callback in @subs[event_name] if @subs?[event_name]?
+  
   _addListeners:->
     NeatComplete.addDomEvent @element, "focus", (e)=>
       @focused = true
@@ -120,9 +127,11 @@ class NeatComplete.Widget
       @output.appendChild(result.render())
     
     if @results.length then @_displayResults() else @_hideResults()
+    @trigger "update:results"
     
     
   selectHighlighted: ->
     @element.value = @highlighted.value
     @_hideResults()
+    @trigger "select:result", @highlighted.value, @highlighted.data
     
