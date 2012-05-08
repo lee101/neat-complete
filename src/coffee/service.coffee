@@ -1,9 +1,5 @@
 window.NeatComplete ?= {}
 
-###*
-  * Compiled from src/service.coffee
-###
-
 class NeatComplete._Service
 
   constructor:(@widget, @name, @search_fn, @options={})->
@@ -13,6 +9,7 @@ class NeatComplete._Service
 
   search:(q)->
     @last_query = q
+    @ready = false
     @search_fn(q,@response)
 
   _response:(q,data)=>
@@ -21,5 +18,5 @@ class NeatComplete._Service
       @results = []
       for datum in data
         @results.push new NeatComplete._Result(@, datum)
-      console?.log @results
+      @ready = true
       @widget.showResults()

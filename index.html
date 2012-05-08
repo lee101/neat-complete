@@ -12,8 +12,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./demo/bootstrap/css/bootstrap.css" rel="stylesheet">
   <link href="./demo/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-  <link href="./demo/css/style.css" rel='stylesheet'>
   <link href="./lib/neat_complete.css" rel='stylesheet'>
+  <link href="./demo/css/style.css" rel='stylesheet'>
   <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -48,11 +48,38 @@
           <h1>Neat<br />Complete</h1>
         </div>
         <div class="span6">
-          <p>A light-weight and library-less plugin for simple autocompletion.</p>
-          <input id="testbox" type='search' placeholder="Search for your hometown" />
+          <p>A light-weight and library-less widget for simple autocompletion.</p>
+
+          <form class="form-inline">
+            <label for"testbox">Give it a go:</label> <input id="testbox" type='text' class="span4" placeholder="Search for your hometown" />
+          </form>
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="span4">
+        <div class="well">
+          <h2>Light-weight</h2>
+          <p>At only 6kB minified, Neat Complete won't bloat your project.</p>
+          <p><a class="btn btn-info" href="#">Fork on Github</a></p>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="well">
+          <h2>Library-less</h2>
+          <p>Neat Complete isn't dependent on libraries, so it'll play nicely if you're using jQuery, Prototype, MooTools, etc...</p>
+          <p><a class="btn btn-info" href="./demo">View some fiddles</a></p>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="well">
+          <h2>Configurable</h2>
+          <p>You can choose where the data comes from, how it's parsed, even configure the styles.</p>
+          <p><a class="btn btn-info" href="./docs">View the docs</a></p>
+        </div>
+      </div>
+    </div>
+    
   </div>
   <footer class="container">
     &copy; 2012 <a href="http://abletech.co.nz">Able Technology</a>
@@ -65,7 +92,7 @@
   <script src="./lib/neat_complete.js" type='text/javascript'></script>
   <script type="text/javascript">
   $(document).ready(function(){
-    window.widget = new NeatComplete.Widget(document.getElementById('testbox'))
+    window.widget = new NeatComplete.Widget(document.getElementById('testbox'),{footerContent:"search powered by GeoNames.",emptyContent:"No results found."})
     widget.addService("test",function(query,response_fn){
       $.ajax({
 				url: "http://ws.geonames.org/searchJSON",

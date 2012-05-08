@@ -1,27 +1,25 @@
 window.NeatComplete ?= {}
 
-###*
-  * Compiled from src/result.coffee
-###
-
 class NeatComplete._Result
   constructor:(@service,@options)->
     @widget       = @service.widget
+    @renderer     = @service.options.renderer || @widget.options.renderer
     @value        = @options?.value
     @score        = @options?.score || 0
     @identifier   = @options?.identifier
     @data         = @options?.data || {}
     
+    
   render:->
     @li = document.createElement("li")
-    @li.innerHTML = @value
-    @li.setAttribute "class", "nc_item"
+    @li.innerHTML = if @renderer? then @renderer(@value,@data) else @value
+    @li.setAttribute "class", @widget.item_class
     @addEvents()
     @li
   
   addEvents:->
     NeatComplete.addDomEvent @li, "click", (e)=>
-      @widget.selectHighlighted()
+      @selectItem()
       if e.preventDefault
         e.preventDefault()
       else
@@ -36,13 +34,14 @@ class NeatComplete._Result
     NeatComplete.addDomEvent @li, "mouseup", =>
       @widget.mouseDownOnSelect = false
       
-    
+  selectItem:->
+    @widget.selectHighlighted()  
       
   highlight:->
     @widget.highlighted?.unhighlight()
-    @li.className = "#{@li.className} nc_hover"
+    @li.className = "#{@li.className} #{@widget.hover_class}"
     @widget.highlighted = @
     
   unhighlight:->
     @widget.highlighted = null
-    @li.className = @li.className.replace(new RegExp("nc_hover","gi"),"")
+    @li.className = @li.className.replace(new RegExp(@widget.hover_class,"gi"),"")
