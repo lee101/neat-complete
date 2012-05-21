@@ -1,51 +1,37 @@
-###*
-  * @author Able Technology Ltd.
-  * @version 0.0.1
-###
 
 window.NeatComplete ?= {}
 
 
-class NeatComplete.Widget
-  max_results : 10
-  list_class  : 'nc_list'
-  item_class  : 'nc_item'
-  hover_class : 'nc_hover'
-  footer_class: 'nc_footer'
-  empty_class : 'nc_empty'
+class NeatComplete.Widget extends NeatComplete.Dispatch
+  defaults:
+    max_results : 10
+    list_class  : 'nc_list'
+    item_class  : 'nc_item'
+    hover_class : 'nc_hover'
+    footer_class: 'nc_footer'
+    empty_class : 'nc_empty'
   
   constructor:(@element,@options={})->
     @element.setAttribute 'autocomplete','off'
     @services = []
+    @_applyDefaults()
     @_addListeners()
     @output = document.createElement("ul")
-    @output.setAttribute "class", @list_class
+    @output.setAttribute "class", @options.list_class
     @_applyStyle "display",  "none"
     @_applyStyle "position", "absolute"
     document.body.appendChild @output
     @
     
-  addService:(name,search_function)->
-    @services.push new NeatComplete._Service(this,name,search_function)
+  addService:(name,search_function,options={})->
+    @services.push new NeatComplete._Service(this,name,search_function,options)
     @
     
-  setOption:(name,value)->
-    @options[name] = value
-    @
-    
-  getOption:(name)->
-    @options[name]
-    
-  on:(event_name,callback)->
-    @subs ?= {}
-    @subs[event_name] ?= []
-    @subs[event_name].push(callback)
-    @
-
-  trigger:(event_name,args...)->
-    callback(args...) for callback in @subs[event_name] if @subs?[event_name]?
-    @
-
+  
+  _applyDefaults:->
+    for key, value of @defaults
+      @setOption(key,value) unless @getOption(key)?
+  
   _addListeners:->
     NeatComplete.addDomEvent @element, "focus", (e)=>
       @focused = true
@@ -139,10 +125,10 @@ class NeatComplete.Widget
     item 
     
   _renderFooter:->
-    @_renderItem @options.footerContent, 'nc_footer'
+    @_renderItem @options.footerContent, @options.footer_class
     
   _renderEmpty:->
-    @_renderItem @options.emptyContent, 'nc_empty'
+    @_renderItem @options.emptyContent, @options.empty_class
   
   _servicesReady:->  
     states = []
@@ -161,8 +147,8 @@ class NeatComplete.Widget
         for result in @results
           @output.appendChild(result.render())
         
-        if @options.footerContent?
-          @output.appendChild(@_renderFooter())
+        if @options.footerContent? and (footer = @_renderFooter()) != ""
+          @output.appendChild(footer)
         @_displayResults()
       else if @options.emptyContent?
         @output.appendChild(@_renderEmpty())
