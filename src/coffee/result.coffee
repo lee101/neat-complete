@@ -13,7 +13,7 @@ class NeatComplete._Result
   render:->
     @li = document.createElement("li")
     @li.innerHTML = if @renderer? then @renderer(@value,@data) else @value
-    @li.setAttribute "class", @widget.item_class
+    @li.setAttribute "class", @widget.options.item_class
     @addEvents()
     @li
   
@@ -39,9 +39,9 @@ class NeatComplete._Result
       
   highlight:->
     @widget.highlighted?.unhighlight()
-    @li.className = "#{@li.className} #{@widget.hover_class}"
+    @li.className = "#{@li.className} #{@widget.options.hover_class}"
     @widget.highlighted = @
     
   unhighlight:->
     @widget.highlighted = null
-    @li.className = @li.className.replace(new RegExp(@widget.hover_class,"gi"),"")
+    @li.className = @li.className.replace(new RegExp(@widget.options.hover_class,"gi"),"")
