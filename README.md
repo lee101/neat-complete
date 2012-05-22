@@ -6,7 +6,7 @@ A light-weight and library-less widget for simple autocompletion.
 Integrating
 -----------
 Simple example using jQuery:
-
+```html
     <!doctype html>
     <html>
     <head>
@@ -30,8 +30,8 @@ Simple example using jQuery:
       </script>
     </body>
     </html>
-
-See more <a href="../demo" target="_parent">examples</a>.
+```
+See more <a href="http://abletech.github.com/neat-complete/demo" target="_parent">examples</a>.
 
 
 
@@ -40,31 +40,38 @@ Contributing
 ### Prerequisites
 
 * node.js - http://nodejs.org/
-      $ brew install node
-
+```sh
+    $ brew install node
+```
 * node package manager - http://npmjs.org/
-      $ curl http://npmjs.org/install.sh | sh
-
+```sh
+    $ curl http://npmjs.org/install.sh | sh
+```
 * coffeescript
-      $ npm install -g coffee-script
-
+```sh
+    $ npm install -g coffee-script
+```
 * uglifyjs
-      $ npm install -g uglify-js
-
+```sh
+    $ npm install -g uglify-js
+```
 * sass gem
-      $ gem install sass
-
+```sh
+    $ gem install sass
+```
 * codo (for generating docs)
-      $ npm install -g codo
-
+```sh
+    $ npm install -g codo
+```
 ### Development Compiling
-    
+```sh
     $ cake watch
-
+```
 ### Production Compiling
-    
+```sh
     $ cake build
-    
+```    
 ### Updating Docs
-
+```sh
     $ codo
+```

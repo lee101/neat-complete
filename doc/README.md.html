@@ -114,32 +114,31 @@
 </p>
 <h2>Integrating</h2>
 <p>Simple example using jQuery:
-
 </p>
-<pre><code>&lt;!doctype html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;link href=&quot;./lib/neat_complete.css&quot; rel=&#39;stylesheet&#39;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;input type=&#39;text&#39; id=&#39;ac_field&#39; /&gt;
+<pre><code class="lang-html">    &lt;!doctype html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset=&quot;utf-8&quot;&gt;
+      &lt;link href=&quot;./lib/neat_complete.css&quot; rel=&#39;stylesheet&#39;&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;input type=&#39;text&#39; id=&#39;ac_field&#39; /&gt;
 
-  &lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-  &lt;script type=&quot;text/javascript&quot; src=&#39;./lib/neat-complete.min.js&#39;&gt;&lt;/script&gt;
-  &lt;script type=&quot;text/javascript&quot;&gt;
-    var widget;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&#39;./lib/neat-complete.min.js&#39;&gt;&lt;/script&gt;
+      &lt;script type=&quot;text/javascript&quot;&gt;
+        var widget;
 
-    $(document).ready(function(){
-      widget = new NeatComplete.Widget(document.getElementById(&#39;ac_field&#39;));
-      widget.addService(&#39;demo&#39;,function(){
+        $(document).ready(function(){
+          widget = new NeatComplete.Widget(document.getElementById(&#39;ac_field&#39;));
+          widget.addService(&#39;demo&#39;,function(){
 
-      });
-    });
-  &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>See more <a href="../demo" target="_parent">examples</a>.
+          });
+        });
+      &lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</code></pre>
+<p>See more <a href="http://abletech.github.com/neat-complete/demo" target="_parent">examples</a>.
 
 
 
@@ -147,37 +146,31 @@
 <h2>Contributing</h2>
 <h3>Prerequisites</h3>
 <ul>
-<li><p>node.js - <a href="http://nodejs.org/">http://nodejs.org/</a></p>
-<pre><code>$ brew install node</code></pre>
+<li>node.js - <a href="http://nodejs.org/">http://nodejs.org/</a><pre><code class="lang-sh">  $ brew install node</code></pre>
 </li>
-<li><p>node package manager - <a href="http://npmjs.org/">http://npmjs.org/</a></p>
-<pre><code>$ curl http://npmjs.org/install.sh | sh</code></pre>
+<li>node package manager - <a href="http://npmjs.org/">http://npmjs.org/</a><pre><code class="lang-sh">  $ curl http://npmjs.org/install.sh | sh</code></pre>
 </li>
-<li><p>coffeescript</p>
-<pre><code>$ npm install -g coffee-script</code></pre>
+<li>coffeescript<pre><code class="lang-sh">  $ npm install -g coffee-script</code></pre>
 </li>
-<li><p>uglifyjs</p>
-<pre><code>$ npm install -g uglify-js</code></pre>
+<li>uglifyjs<pre><code class="lang-sh">  $ npm install -g uglify-js</code></pre>
 </li>
-<li><p>sass gem</p>
-<pre><code>$ gem install sass</code></pre>
+<li>sass gem<pre><code class="lang-sh">  $ gem install sass</code></pre>
 </li>
-<li><p>codo (for generating docs)</p>
-<pre><code>$ npm install -g codo</code></pre>
+<li>codo (for generating docs)<pre><code class="lang-sh">  $ npm install -g codo</code></pre>
+<h3>Development Compiling</h3>
+<pre><code class="lang-sh">  $ cake watch</code></pre>
+<h3>Production Compiling</h3>
+<pre><code class="lang-sh">  $ cake build</code></pre>
+<h3>Updating Docs</h3>
+<pre><code class="lang-sh">  $ codo</code></pre>
 </li>
 </ul>
-<h3>Development Compiling</h3>
-<pre><code>$ cake watch</code></pre>
-<h3>Production Compiling</h3>
-<pre><code>$ cake build</code></pre>
-<h3>Updating Docs</h3>
-<pre><code>$ codo</code></pre>
 
       </div>
     </div>
     <div id='footer'>
   Generated on
-  Tue May 22 2012 15:34:53 GMT+1200 (NZST)
+  Tue May 22 2012 16:16:10 GMT+1200 (NZST)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v0.7.1
