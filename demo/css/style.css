@@ -29,3 +29,11 @@ ul.nc_list li.nc_empty{
 ul.nc_list li.nc_item.nc_hover{
   background-color:rgb(82, 168, 236);
 }
+
+
+.fiddle-demos.tabs-left > .nav-tabs{
+ margin-right:-1px;
+}
+.fiddle-demos .tab-content{
+  border:solid 1px #DDD;
+}
