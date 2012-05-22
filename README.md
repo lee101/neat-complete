@@ -5,6 +5,7 @@ A light-weight and library-less widget for simple autocompletion.
 
 Integrating
 -----------
+Simple example using jQuery:
 
     <!doctype html>
     <html>
@@ -19,6 +20,7 @@ Integrating
       <script type="text/javascript" src='./lib/neat-complete.min.js'></script>
       <script type="text/javascript">
         var widget;
+        
         $(document).ready(function(){
           widget = new NeatComplete.Widget(document.getElementById('ac_field'));
           widget.addService('demo',function(){
@@ -29,7 +31,7 @@ Integrating
     </body>
     </html>
 
-
+See more <a href="../demo" target="_parent">examples</a>.
 
 
 
@@ -38,37 +40,31 @@ Contributing
 ### Prerequisites
 
 * node.js - http://nodejs.org/
-    
-    brew install node
+      $ brew install node
 
 * node package manager - http://npmjs.org/
-    
-    curl http://npmjs.org/install.sh | sh
+      $ curl http://npmjs.org/install.sh | sh
 
 * coffeescript
-    
-    npm install -g coffee-script
+      $ npm install -g coffee-script
 
 * uglifyjs
-    
-    npm install -g uglify-js
+      $ npm install -g uglify-js
 
 * sass gem
-    
-    gem install sass
+      $ gem install sass
 
 * codo (for generating docs)
-
-    npm install -g codo
+      $ npm install -g codo
 
 ### Development Compiling
     
-    cake watch
+    $ cake watch
 
 ### Production Compiling
     
-    cake build
+    $ cake build
     
 ### Updating Docs
 
-    codo src/coffee
+    $ codo

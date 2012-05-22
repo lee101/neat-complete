@@ -113,6 +113,9 @@
 
 </p>
 <h2>Integrating</h2>
+<p>Simple example using jQuery:
+
+</p>
 <pre><code>&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -126,6 +129,7 @@
   &lt;script type=&quot;text/javascript&quot; src=&#39;./lib/neat-complete.min.js&#39;&gt;&lt;/script&gt;
   &lt;script type=&quot;text/javascript&quot;&gt;
     var widget;
+
     $(document).ready(function(){
       widget = new NeatComplete.Widget(document.getElementById(&#39;ac_field&#39;));
       widget.addService(&#39;demo&#39;,function(){
@@ -135,40 +139,45 @@
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+<p>See more <a href="../demo" target="_parent">examples</a>.
+
+
+
+</p>
 <h2>Contributing</h2>
 <h3>Prerequisites</h3>
 <ul>
 <li><p>node.js - <a href="http://nodejs.org/">http://nodejs.org/</a></p>
-<p>  brew install node</p>
+<pre><code>$ brew install node</code></pre>
 </li>
 <li><p>node package manager - <a href="http://npmjs.org/">http://npmjs.org/</a></p>
-<p>  curl <a href="http://npmjs.org/install.sh">http://npmjs.org/install.sh</a> | sh</p>
+<pre><code>$ curl http://npmjs.org/install.sh | sh</code></pre>
 </li>
 <li><p>coffeescript</p>
-<p>  npm install -g coffee-script</p>
+<pre><code>$ npm install -g coffee-script</code></pre>
 </li>
 <li><p>uglifyjs</p>
-<p>  npm install -g uglify-js</p>
+<pre><code>$ npm install -g uglify-js</code></pre>
 </li>
 <li><p>sass gem</p>
-<p>  gem install sass</p>
+<pre><code>$ gem install sass</code></pre>
 </li>
 <li><p>codo (for generating docs)</p>
-<p>  npm install -g codo</p>
+<pre><code>$ npm install -g codo</code></pre>
 </li>
 </ul>
 <h3>Development Compiling</h3>
-<pre><code>cake watch</code></pre>
+<pre><code>$ cake watch</code></pre>
 <h3>Production Compiling</h3>
-<pre><code>cake build</code></pre>
+<pre><code>$ cake build</code></pre>
 <h3>Updating Docs</h3>
-<pre><code>codo src/coffee</code></pre>
+<pre><code>$ codo</code></pre>
 
       </div>
     </div>
     <div id='footer'>
   Generated on
-  Tue May 22 2012 15:18:40 GMT+1200 (NZST)
+  Tue May 22 2012 15:34:53 GMT+1200 (NZST)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v0.7.1
