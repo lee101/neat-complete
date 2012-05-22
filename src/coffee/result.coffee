@@ -1,5 +1,6 @@
 window.NeatComplete ?= {}
 
+# @private
 class NeatComplete._Result
   constructor:(@service,@options)->
     @widget       = @service.widget

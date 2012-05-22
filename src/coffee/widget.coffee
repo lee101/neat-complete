@@ -1,17 +1,15 @@
-
-window.NeatComplete ?= {}
-
-
+# Class for creating new widget
+#
+# @example
+#   var widget = new NeatComplete.Widget(document.getElementById('search_field'));
+#   widget.addService('basic',function(){});
+#
 class NeatComplete.Widget extends NeatComplete.Dispatch
-  defaults:
-    max_results : 10
-    list_class  : 'nc_list'
-    item_class  : 'nc_item'
-    hover_class : 'nc_hover'
-    footer_class: 'nc_footer'
-    empty_class : 'nc_empty'
   
-  constructor:(@element,@options={})->
+  # Creates a new widget
+  # @param element [HTMLElement] input element
+  # @param options [object] options
+  constructor: (@element,@options={}) ->
     @element.setAttribute 'autocomplete','off'
     @services = []
     @_applyDefaults()
@@ -22,17 +20,31 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @_applyStyle "position", "absolute"
     document.body.appendChild @output
     @
-    
-  addService:(name,search_function,options={})->
+ 
+  defaults:
+    max_results : 10
+    list_class  : 'nc_list'
+    item_class  : 'nc_item'
+    hover_class : 'nc_hover'
+    footer_class: 'nc_footer'
+    empty_class : 'nc_empty'
+
+  
+  # Add a new service 
+  # @param [string] name of service
+  # @param [function] search function
+  # @param [object] options
+  addService: (name,search_function,options={}) ->
     @services.push new NeatComplete._Service(this,name,search_function,options)
     @
     
-  
-  _applyDefaults:->
+  # @private  
+  _applyDefaults: ->
     for key, value of @defaults
       @setOption(key,value) unless @getOption(key)?
   
-  _addListeners:->
+  # @private
+  _addListeners: ->
     NeatComplete.addDomEvent @element, "focus", (e)=>
       @focused = true
     
@@ -71,8 +83,8 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
         @focused = false
         @_hideResults()
       
-      
-  _moveHighlight:(step)->
+  # @private    
+  _moveHighlight: (step) ->
     current_index = if @highlighted? then @results.indexOf(@highlighted) else -1
     @highlighted?.unhighlight()
     current_index += step
@@ -83,7 +95,8 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     
     @results[current_index]?.highlight()
     @element.value = if @highlighted? then @highlighted.value else @_val
-      
+  
+  # @private    
   _getSuggestions: ->
     @_val = @element.value
     unless @_val is ''
@@ -91,11 +104,13 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
         service.search @_val
     else
       @_hideResults()
-      
-  _applyStyle: (attr,value)->
+  
+  # @private    
+  _applyStyle: (attr,value) ->
     @output.style[attr] = value
-    
-  _getPosition: ()->
+  
+  # @private  
+  _getPosition: ->
     el = @element
     coords =
       top: el.offsetTop + el.offsetHeight
@@ -106,36 +121,43 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
       coords.left += el.offsetLeft
     coords
   
-  _hideResults:->
+  # @private
+  _hideResults: ->
     
     @_applyStyle "display", "none"
     @results = []
     service.results = [] for service in @services
   
-  _displayResults:()->
+  # @private
+  _displayResults: ->
     coords = @_getPosition()
     @_applyStyle "left", "#{coords.left}px"
     @_applyStyle "top", "#{coords.top}px"
     @_applyStyle "display", "block"
   
-  _renderItem:(content,cls)->
+  # @private
+  _renderItem: (content,cls) ->
     item = document.createElement("li")
     item.innerHTML = content
     item.setAttribute "class", cls if cls?
     item 
-    
-  _renderFooter:->
+  
+  # @private  
+  _renderFooter: ->
     @_renderItem @options.footerContent, @options.footer_class
-    
-  _renderEmpty:->
+  
+  # @private  
+  _renderEmpty: ->
     @_renderItem @options.emptyContent, @options.empty_class
   
-  _servicesReady:->  
+  # @private
+  _servicesReady: ->  
     states = []
     states.push(service.ready) for service in @services
     states.indexOf(false) < 0
-
-  showResults: ()->
+  
+  # @private
+  showResults: ->
     if @_servicesReady()
       @results = []
       @output.innerHTML = ""
@@ -158,7 +180,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
       
       @trigger "results:update"
     
-    
+  # @private  
   selectHighlighted: ->
     @element.value = @highlighted.value
     @_hideResults()

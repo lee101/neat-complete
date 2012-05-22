@@ -1,5 +1,6 @@
 window.NeatComplete ?= {}
 
+# @private
 class NeatComplete._Service extends NeatComplete.Dispatch
 
   constructor:(@widget, @name, @search_fn, @options={})->
