@@ -165,7 +165,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
       
       if @results.length 
         @results = @results.sort (a,b)-> b.score - a.score
-        @results = @results[0..(@max_results-1)]
+        @results = @results[0..(@getOption("max_results")-1)]
         for result in @results
           @output.appendChild(result.render())
         
