@@ -36,6 +36,7 @@ class NeatComplete._Result
       @widget.mouseDownOnSelect = false
       
   selectItem:->
+    @service.trigger("result:select",@value,@data)
     @widget.selectHighlighted()  
       
   highlight:->
