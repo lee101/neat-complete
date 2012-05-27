@@ -63,7 +63,8 @@ page.open(phantom.args[0], function(status){
                 var el = document.getElementById('qunit-testresult');
                 try {
                     return el.getElementsByClassName('failed')[0].innerHTML;
-                } catch (e) { }
+                } catch (e) { console.log("something went wrong")}
+
                 return 10000;
             });
             phantom.exit((parseInt(failedNum, 10) > 0) ? 1 : 0);
