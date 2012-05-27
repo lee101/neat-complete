@@ -34,9 +34,10 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   # @param [string] name of service
   # @param [function] search function
   # @param [object] options
+  # @returns NeatComplete.Service
   addService: (name,search_function,options={}) ->
-    @services.push new NeatComplete._Service(this,name,search_function,options)
-    @
+    @services.push(service = new NeatComplete.Service(this,name,search_function,options))
+    service
     
   # @private  
   _applyDefaults: ->
