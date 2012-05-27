@@ -6,20 +6,32 @@
 window.NeatComplete ?= {}
 
 class NeatComplete.Dispatch
-  setOption:(name,value)->
-    @options[name] = value
+  
+  # Sets value of option
+  # @param key [String] name of option
+  # @param value [*] value of option
+  setOption: (key,value) ->
+    @options[key] = value
     @
   
-  getOption:(name)->
-    @options[name]
+  # Gets value of option
+  # @param key [String] name of option
+  getOption: (key) ->
+    @options[key]
   
-  on:(event_name,callback)->
+  # Adds an event listener
+  # @param event_name [String] name of event
+  # @param callback [Function] callback function to be fired on event
+  on: (event_name,callback) ->
     @subs ?= {}
     @subs[event_name] ?= []
     @subs[event_name].push(callback)
     @
 
-  trigger:(event_name,args...)->
+  # Manually trigger event
+  # @param event_name [String] name of event
+  # @param args [*] arguments to be passed to callback
+  trigger: (event_name,args...) ->
     callback(args...) for callback in @subs[event_name] if @subs?[event_name]?
     @
   

@@ -134,7 +134,7 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
   <li>
     <span class='signature'>
       <a href='#constructor-instance'>
-        - (void) <strong>constructor</strong>(element, options = {})
+        - (NeatComplete.Widget) <strong>constructor</strong>(element, options = {})
       </a>
     </span>
     <span class='constructor note title'>Constructor</span>
@@ -145,11 +145,11 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
   <li>
     <span class='signature'>
       <a href='#addService-instance'>
-        - (void) <strong>addService</strong>(name, search_function, options = {})
+        - (NeatComplete.Service) <strong>addService</strong>(name, search_function, options = {})
       </a>
     </span>
     <span class='desc'>
-      Add a new service @returns NeatComplete.Service
+      Add a new service
     </span>
   </li>
 </ul>
@@ -170,7 +170,7 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
       <div class='methods'>
   <div class='method_details'>
     <p class='signature' id='constructor-instance'>
-      - (void) <strong>constructor</strong>(element, options = {})
+      - (NeatComplete.Widget) <strong>constructor</strong>(element, options = {})
     </p>
     <div class='docstring'>
   <p>Creates a new widget </p> 
@@ -195,6 +195,86 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
       <span class='desc'>options</span>
     </li>
   </ul>
+  <h3>
+    Options Hash:
+    (options):
+  </h3>
+  <ul class='options'>
+    <li>
+      <span class='name'>max_results</span>
+      <span class='type'>
+        (<tt>Integer</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>Maximum number of results to display (default 10).</span>
+    </li>
+    <li>
+      <span class='name'>list_class</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>CSS class of the rendered <code>ul</code> element (default 'nc_list').</span>
+    </li>
+    <li>
+      <span class='name'>item_class</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>CSS class of each <code>li</code> for each result (default 'nc_item').</span>
+    </li>
+    <li>
+      <span class='name'>hover_class</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>CSS class which gets applied to the highlighted <code>li</code> element (default 'nc_hover').</span>
+    </li>
+    <li>
+      <span class='name'>footer_content</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>HTML content that can be displayed as a footer (e.g. copyrights).</span>
+    </li>
+    <li>
+      <span class='name'>footer_class</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>CSS class of the <code>li</code> item displaying the <em>footer_content</em> (default 'nc_footer').</span>
+    </li>
+    <li>
+      <span class='name'>empty_content</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>HTML content that can be displayed when there are no results.</span>
+    </li>
+    <li>
+      <span class='name'>empty_class</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>CSS class of the <code>li</code> item displaying the <em>empty_content</em> (default 'nc_empty').</span>
+    </li>
+  </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'>
+        (<tt><a href='../../classes/NeatComplete/Widget.html'>NeatComplete.Widget</a></tt>)
+      </span>
+      &mdash;
+      <span class='desc'>returns self for chaining</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
@@ -202,10 +282,10 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
       <div class='methods'>
   <div class='method_details'>
     <p class='signature' id='addService-instance'>
-      - (void) <strong>addService</strong>(name, search_function, options = {})
+      - (NeatComplete.Service) <strong>addService</strong>(name, search_function, options = {})
     </p>
     <div class='docstring'>
-  <p>Add a new service  @returns NeatComplete.Service </p> 
+  <p>Add a new service  </p> 
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -233,13 +313,23 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
       </span>
     </li>
   </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'>
+        (<tt><a href='../../classes/NeatComplete/Service.html'>NeatComplete.Service</a></tt>)
+      </span>
+      &mdash;
+      <span class='desc'>Service object</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
     </div>
     <div id='footer'>
   Generated on
-  Mon May 28 2012 09:42:12 GMT+1200 (NZST)
+  Mon May 28 2012 11:06:49 GMT+1200 (NZST)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v0.7.1

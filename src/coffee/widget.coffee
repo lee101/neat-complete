@@ -7,8 +7,21 @@
 class NeatComplete.Widget extends NeatComplete.Dispatch
   
   # Creates a new widget
+  #
   # @param element [HTMLElement] input element
   # @param options [object] options
+  #
+  # @return [NeatComplete.Widget] returns self for chaining
+  # 
+  # @option options [Integer] max_results Maximum number of results to display (default 10).
+  # @option options [String] list_class CSS class of the rendered <code>ul</code> element (default 'nc_list').
+  # @option options [String] item_class CSS class of each <code>li</code> for each result (default 'nc_item').
+  # @option options [String] hover_class CSS class which gets applied to the highlighted <code>li</code> element (default 'nc_hover').
+  # @option options [String] footer_content HTML content that can be displayed as a footer (e.g. copyrights).
+  # @option options [String] footer_class CSS class of the <code>li</code> item displaying the <em>footer_content</em> (default 'nc_footer').
+  # @option options [String] empty_content HTML content that can be displayed when there are no results.
+  # @option options [String] empty_class CSS class of the <code>li</code> item displaying the <em>empty_content</em> (default 'nc_empty').
+  #
   constructor: (@element,@options={}) ->
     @element.setAttribute 'autocomplete','off'
     @services = []
@@ -34,7 +47,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   # @param [string] name of service
   # @param [function] search function
   # @param [object] options
-  # @returns NeatComplete.Service
+  # @return [NeatComplete.Service] Service object
   addService: (name,search_function,options={}) ->
     @services.push(service = new NeatComplete.Service(this,name,search_function,options))
     service
@@ -145,11 +158,11 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   
   # @private  
   _renderFooter: ->
-    @_renderItem @options.footerContent, @options.footer_class
+    @_renderItem @options.footer_content, @options.footer_class
   
   # @private  
   _renderEmpty: ->
-    @_renderItem @options.emptyContent, @options.empty_class
+    @_renderItem @options.empty_content, @options.empty_class
   
   # @private
   _servicesReady: ->  
@@ -170,10 +183,10 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
         for result in @results
           @output.appendChild(result.render())
         
-        if @options.footerContent? and (footer = @_renderFooter()) != ""
+        if @options.footer_content? and (footer = @_renderFooter()) != ""
           @output.appendChild(footer)
         @_displayResults()
-      else if @options.emptyContent?
+      else if @options.empty_content?
         @output.appendChild(@_renderEmpty())
         @_displayResults()
         @trigger "results:empty"

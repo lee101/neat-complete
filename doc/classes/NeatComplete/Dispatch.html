@@ -119,21 +119,21 @@
   <li>
     <span class='signature'>
       <a href='#setOption-instance'>
-        - (void) <strong>setOption</strong>(name, value)
+        - (void) <strong>setOption</strong>(key, value)
       </a>
     </span>
     <span class='desc'>
-      
+      Sets value of option
     </span>
   </li>
   <li>
     <span class='signature'>
       <a href='#getOption-instance'>
-        - (void) <strong>getOption</strong>(name)
+        - (void) <strong>getOption</strong>(key)
       </a>
     </span>
     <span class='desc'>
-      
+      Gets value of option
     </span>
   </li>
   <li>
@@ -143,7 +143,7 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Adds an event listener
     </span>
   </li>
   <li>
@@ -153,7 +153,7 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Manually trigger event
     </span>
   </li>
 </ul>
@@ -161,37 +161,117 @@
       <div class='methods'>
   <div class='method_details'>
     <p class='signature' id='setOption-instance'>
-      - (void) <strong>setOption</strong>(name, value)
+      - (void) <strong>setOption</strong>(key, value)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Sets value of option </p> 
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>key</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>name of option</span>
+    </li>
+    <li>
+      <span class='name'>value</span>
+      <span class='type'>
+        (<tt>*</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>value of option</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='getOption-instance'>
-      - (void) <strong>getOption</strong>(name)
+      - (void) <strong>getOption</strong>(key)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Gets value of option </p> 
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>key</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>name of option</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='on-instance'>
       - (void) <strong>on</strong>(event_name, callback)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Adds an event listener </p> 
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>event_name</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>name of event</span>
+    </li>
+    <li>
+      <span class='name'>callback</span>
+      <span class='type'>
+        (<tt>Function</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>callback function to be fired on event</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='trigger-instance'>
       - (void) <strong>trigger</strong>(event_name, args...)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Manually trigger event </p> 
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>event_name</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>name of event</span>
+    </li>
+    <li>
+      <span class='name'>args</span>
+      <span class='type'>
+        (<tt>*</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>arguments to be passed to callback</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
     </div>
     <div id='footer'>
   Generated on
-  Mon May 28 2012 09:42:12 GMT+1200 (NZST)
+  Mon May 28 2012 11:06:49 GMT+1200 (NZST)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v0.7.1
