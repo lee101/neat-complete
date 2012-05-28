@@ -1,15 +1,15 @@
 /**
-* Wait until the test condition is true or a timeout occurs. Useful for waiting
-* on a server response or for a ui change (fadeIn, etc.) to occur.
-*
-* @param testFx javascript condition that evaluates to a boolean,
-* it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
-* as a callback function.
-* @param onReady what to do when testFx condition is fulfilled,
-* it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
-* as a callback function.
-* @param timeOutMillis the max amount of time to wait. If not specified, 3 sec is used.
-*/
+ * Wait until the test condition is true or a timeout occurs. Useful for waiting
+ * on a server response or for a ui change (fadeIn, etc.) to occur.
+ *
+ * @param testFx javascript condition that evaluates to a boolean,
+ * it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
+ * as a callback function.
+ * @param onReady what to do when testFx condition is fulfilled,
+ * it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
+ * as a callback function.
+ * @param timeOutMillis the max amount of time to wait. If not specified, 3 sec is used.
+ */
 function waitFor(testFx, onReady, timeOutMillis) {
     var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 3001, //< Default Max Timout is 3s
         start = new Date().getTime(),
@@ -25,6 +25,7 @@ function waitFor(testFx, onReady, timeOutMillis) {
                     phantom.exit(1);
                 } else {
                     // Condition fulfilled (timeout and/or condition is 'true')
+                    console.log("'waitFor()' finished in " + (new Date().getTime() - start) + "ms.");
                     typeof(onReady) === "string" ? eval(onReady) : onReady(); //< Do what it's supposed to do once the condition is fulfilled
                     clearInterval(interval); //< Stop this interval
                 }
@@ -44,8 +45,14 @@ var page = new WebPage();
 page.onConsoleMessage = function(msg) {
     console.log(msg);
 };
-
+page.onError = function (msg, trace) {
+    console.log(msg);
+    trace.forEach(function(item) {
+        console.log('  ', item.file, ':', item.line);
+    })
+}
 page.open(phantom.args[0], function(status){
+
     if (status !== "success") {
         console.log("Unable to access network");
         phantom.exit();
@@ -61,13 +68,12 @@ page.open(phantom.args[0], function(status){
         }, function(){
             var failedNum = page.evaluate(function(){
                 var el = document.getElementById('qunit-testresult');
+                console.log(el.innerText);
                 try {
                     return el.getElementsByClassName('failed')[0].innerHTML;
-                } catch (e) {}
-
+                } catch (e) { }
                 return 10000;
             });
-            console.log(failedNum);
             phantom.exit((parseInt(failedNum, 10) > 0) ? 1 : 0);
         });
     }

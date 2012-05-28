@@ -1,8 +1,6 @@
 # @author Able Technology Consulting Ltd.
 # @version 0.0.1
 
-"use strict";
-
 window.NeatComplete ?= {}
 
 class NeatComplete.Dispatch

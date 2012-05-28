@@ -1,15 +1,18 @@
-var input, widget;
-var birds = ["kakapo","kea","kiwi","pukeko","moa","tui","weka"];
+var input, 
+    widget,
+    birds = ["kakapo","kea","kiwi","pukeko","moa","tui","weka"];
 
 function addInputAndWidget(){
-  input = $("<input>").prop("type","text").appendTo($("body"));
-  widget = new NeatComplete.Widget(input[0]);
-  deepEqual(widget.element, input[0], "widget have set element");
+  input = document.createElement("input");
+  input.type = "text";
+  document.body.appendChild(input);
+  widget = new NeatComplete.Widget(input);
+  deepEqual(widget.element, input, "widget have set element");
   ok($("ul.nc_list"),"should have appended output list")
 }
 
 function removeElements(){
-  input.remove();
+  document.body.removeChild(input);
   $("ul.nc_list").remove();
   widget = null;
 }
@@ -33,13 +36,13 @@ module("Array Search",{
 });
 
 test("Show 'k' results",function(){
-  input.val("k");
+  input.value = "k";
   widget._getSuggestions();
   equal($("li.nc_item",widget.output).length, 3,"should show 3 results");
 });
 
 test("Select first match",function(){
-  input.val("k");
+  input.value = "k";
   widget._getSuggestions();
   equal($("li.nc_item",widget.output).length, 3,"should show 3 results");
   widget.highlighted = widget.results[0];
@@ -48,7 +51,7 @@ test("Select first match",function(){
 });
 
 test("Show no matches",function(){
-  input.val("asdf");
+  input.value = "asdf";
   widget._getSuggestions();
   equal($("li.nc_item",widget.output).length, 0,"should show no results");
   ok($(widget.output).is(":hidden"), "output should be hidden");
@@ -73,7 +76,7 @@ module("Ajax Search",{
 });
 
 asyncTest("Show 'k' results",function(){
-  input.val("k");
+  input.value = "k";
   widget.on("results:update",function(){
     equal($("li.nc_item",widget.output).length, 3,"should show 3 results");
     start()
@@ -82,7 +85,7 @@ asyncTest("Show 'k' results",function(){
 });
 
 asyncTest("Show no results",function(){
-  input.val("asdf");
+  input.value = "asdf";
   widget.on("results:update",function(){
     equal($("li.nc_item",widget.output).length, 0,"should show no results");
     ok($(widget.output).is(":hidden"), "output should be hidden");
@@ -119,7 +122,7 @@ module("Multiple Services",{
 });
 
 asyncTest("Show 'k' results",function(){
-  input.val("k");
+  input.value = "k";
   widget.on("results:update",function(){
     equal($("li.nc_item",widget.output).length, 6,"should show 6 results");
     start()
@@ -128,7 +131,7 @@ asyncTest("Show 'k' results",function(){
 });
 
 asyncTest("Show no results",function(){
-  input.val("asdf");
+  input.value = "asdf";
   widget.on("results:update",function(){
     equal($("li.nc_item",widget.output).length, 0,"should show no results");
     ok($(widget.output).is(":hidden"), "output should be hidden");
