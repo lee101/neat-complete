@@ -14,7 +14,7 @@ class NeatComplete._Result
   render:->
     @li = document.createElement("li")
     @li.innerHTML = if @renderer? then @renderer(@value,@data) else @value
-    @li.setAttribute "class", @widget.options.item_class
+    @li.className = @widget.options.item_class
     @addEvents()
     @li
   

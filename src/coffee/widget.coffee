@@ -28,7 +28,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @_applyDefaults()
     @_addListeners()
     @output = document.createElement("ul")
-    @output.setAttribute "class", @options.list_class
+    @output.className = @options.list_class
     @_applyStyle "display",  "none"
     @_applyStyle "position", "absolute"
     document.body.appendChild @output
@@ -153,7 +153,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   _renderItem: (content,cls) ->
     item = document.createElement("li")
     item.innerHTML = content
-    item.setAttribute "class", cls if cls?
+    item.className = cls if cls?
     item 
   
   # @private  
