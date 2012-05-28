@@ -1,5 +1,6 @@
 Neat Complete
 =============
+[![Build Status](https://secure.travis-ci.org/AbleTech/neat-complete.png?branch=master)](http://travis-ci.org/AbleTech/neat-complete)
 
 A light-weight and library-less widget for simple autocompletion.
 
