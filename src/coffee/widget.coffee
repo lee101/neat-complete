@@ -64,7 +64,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     
     NeatComplete.addDomEvent @element, "keypress", (e)=>
       keyCode = e.which || e.keyCode
-      if keyCode is 13
+      if @visible and keyCode is 13 
         @highlighted?.selectItem()
         if e.preventDefault 
           e.preventDefault()
@@ -76,13 +76,13 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
       keyCode = e.which || e.keyCode
       switch keyCode
         when 38
-          @_moveHighlight(-1)
+          @_moveHighlight(-1) if @visible
           false
         when 40
-          @_moveHighlight(1)
+          @_moveHighlight(1) if @visible
           false
         when 9
-          @highlighted?.selectItem()
+          @highlighted?.selectItem() if @visible
         when 27
           @_hideResults()
         when 37,39,13
@@ -137,13 +137,14 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   
   # @private
   _hideResults: ->
-    
+    @visible = false
     @_applyStyle "display", "none"
     @results = []
     service.results = [] for service in @services
   
   # @private
   _displayResults: ->
+    @visible = true
     coords = @_getPosition()
     @_applyStyle "left", "#{coords.left}px"
     @_applyStyle "top", "#{coords.top}px"
