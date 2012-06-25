@@ -78,6 +78,7 @@ module("Ajax Search",{
 asyncTest("Show 'k' results",function(){
   input.value = "k";
   widget.on("results:update",function(){
+    equal(this, widget);
     equal($("li.nc_item",widget.output).length, 3,"should show 3 results");
     start()
   });
