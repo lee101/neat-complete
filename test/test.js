@@ -78,7 +78,7 @@ module("Ajax Search",{
 asyncTest("Show 'k' results",function(){
   input.value = "k";
   widget.on("results:update",function(){
-    equal(this, widget);
+    equal(this, widget, "event listener should be scoped to widget");
     equal($("li.nc_item",widget.output).length, 3,"should show 3 results");
     start()
   });
@@ -88,6 +88,7 @@ asyncTest("Show 'k' results",function(){
 asyncTest("Show no results",function(){
   input.value = "asdf";
   widget.on("results:update",function(){
+    equal(this, widget, "event listener should be scoped to widget");
     equal($("li.nc_item",widget.output).length, 0,"should show no results");
     ok($(widget.output).is(":hidden"), "output should be hidden");
     start()
@@ -125,6 +126,7 @@ module("Multiple Services",{
 asyncTest("Show 'k' results",function(){
   input.value = "k";
   widget.on("results:update",function(){
+    equal(this, widget, "event listener should be scoped to widget");
     equal($("li.nc_item",widget.output).length, 6,"should show 6 results");
     start()
   });
@@ -134,6 +136,7 @@ asyncTest("Show 'k' results",function(){
 asyncTest("Show no results",function(){
   input.value = "asdf";
   widget.on("results:update",function(){
+    equal(this, widget, "event listener should be scoped to widget");
     equal($("li.nc_item",widget.output).length, 0,"should show no results");
     ok($(widget.output).is(":hidden"), "output should be hidden");
     start()
