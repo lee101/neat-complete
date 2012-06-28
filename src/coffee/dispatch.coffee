@@ -30,6 +30,9 @@ class NeatComplete.Dispatch
   # @param event_name [String] name of event
   # @param args [*] arguments to be passed to callback
   trigger: (event_name,args...) ->
-    callback.apply(@, args...) for callback in @subs[event_name] if @subs?[event_name]?
+    if @subs?[event_name]?
+      for callback in @subs[event_name] 
+        `callback.apply(this, args)` #coffeescript does something funky when trying to call the apply method
+    
     @
   
