@@ -41,6 +41,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     hover_class : 'nc_hover'
     footer_class: 'nc_footer'
     empty_class : 'nc_empty'
+    error_class : 'nc_error'
 
 
   # Add a new service
@@ -113,6 +114,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   # @private
   _getSuggestions: ->
     @_val = @element.value
+    @error_content = null
     unless @_val is ''
       for service in @services
         service.search @_val
@@ -155,6 +157,10 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     item = document.createElement("li")
     item.innerHTML = content
     item.className = cls if cls?
+    NeatComplete.addDomEvent item, "mousedown",=>
+      @mouseDownOnSelect = true
+    NeatComplete.addDomEvent item, "mouseup", =>
+      @mouseDownOnSelect = false
     item
 
   # @private
@@ -186,6 +192,9 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
 
         if @options.footer_content? and (footer = @_renderFooter()) != ""
           @output.appendChild(footer)
+        @_displayResults()
+      else if @error_content
+        @output.appendChild(@_renderItem(@error_content, @options.error_class))
         @_displayResults()
       else if @options.empty_content?
         @output.appendChild(@_renderEmpty())

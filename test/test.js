@@ -1,4 +1,4 @@
-var input, 
+var input,
     widget,
     birds = ["kakapo","kea","kiwi","pukeko","moa","tui","weka"];
 
@@ -29,7 +29,7 @@ module("Array Search",{
       });
       response_fn(query,results);
     });
-  }, 
+  },
   teardown:function(){
     removeElements();
   }
@@ -69,7 +69,7 @@ module("Ajax Search",{
         response_fn(query,results);
       });
     });
-  }, 
+  },
   teardown:function(){
     removeElements();
   }
@@ -117,7 +117,7 @@ module("Multiple Services",{
       response_fn(query,results);
     });
     equal(widget.services.length, 2, "should have two services");
-  }, 
+  },
   teardown:function(){
     removeElements();
   }
@@ -142,4 +142,25 @@ asyncTest("Show no results",function(){
     start()
   });
   widget._getSuggestions();
+});
+
+
+module("Error message", {
+  setup: function(){
+    addInputAndWidget();
+    widget.addService("always_error", function(query,response_fn){
+      this.widget.error_content = "Something went wrong";
+      response_fn(query, []);
+    });
+  },
+  teardown:function(){
+    removeElements();
+  }
+});
+test("Show error message",function(){
+  input.value = "asdf";
+  widget._getSuggestions();
+  equal($("li.nc_item",widget.output).length, 0,"should show no results");
+  equal($("li.nc_error", widget.output).text(), "Something went wrong", "should display error message");
+  ok($(widget.output).is(":visible"), "output should not be hidden");
 });
