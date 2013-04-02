@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "description": "A light-weight and library-less widget for simple autocompletion.",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test --verbose"
   },
   "directories": {
     "doc": "doc",
