@@ -131,8 +131,13 @@
 
         $(document).ready(function(){
           widget = new NeatComplete.Widget(document.getElementById(&#39;ac_field&#39;));
-          widget.addService(&#39;demo&#39;,function(){
-
+          widget.addService(&#39;demo&#39;,function(query, callback_fn){
+            $.getJSON(&quot;/path/to/service.json&quot;, function(data){
+              var results = $.map(data, function(result){
+                return { value: result.name, data: result }
+              });
+              callback_fn(query, results);
+            });
           });
         });
       &lt;/script&gt;
@@ -159,7 +164,7 @@
     </div>
     <div id='footer'>
   Generated on
-  Tue Apr 02 2013 14:21:48 GMT+1300 (NZDT)
+  Tue Apr 02 2013 15:29:17 GMT+1300 (NZDT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.6.0

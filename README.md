@@ -24,8 +24,13 @@ Simple example using jQuery:
 
         $(document).ready(function(){
           widget = new NeatComplete.Widget(document.getElementById('ac_field'));
-          widget.addService('demo',function(){
-
+          widget.addService('demo',function(query, callback_fn){
+            $.getJSON("/path/to/service.json", function(data){
+              var results = $.map(data, function(result){
+                return { value: result.name, data: result }
+              });
+              callback_fn(query, results);
+            });
           });
         });
       </script>
