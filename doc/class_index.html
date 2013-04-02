@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset='UTF-8'>
   <title>Neat Complete Documentation</title>
   <link rel='stylesheet' href='assets/codo.css' type='text/css'>
   <script src='assets/codo.js'></script>
@@ -19,9 +20,9 @@
     </nav>
     <div id='search'>
       <a id='class_list_link' href='class_list.html'>Classes</a>
-      <a id='mixin_list_link' href='mixin_list.html'>Mixins</a>
-      <a id='method_list_link' href='method_list.html'>Methods</a>
       <a id='file_list_link' href='file_list.html'>Files</a>
+      <a id='method_list_link' href='method_list.html'>Methods</a>
+      <a id='extra_list_link' href='extra_list.html'>Extras</a>
     </div>
   </div>
   <iframe id='search_frame'></iframe>
@@ -61,12 +62,16 @@
         Mixin list
       </li>
       <li>
+        <span>Ctrl-F</span>
+        File list
+      </li>
+      <li>
         <span>Ctrl-M</span>
         Method list
       </li>
       <li>
-        <span>Ctrl-F</span>
-        File list
+        <span>Ctrl-E</span>
+        Extras list
       </li>
     </ul>
     <p>
@@ -97,22 +102,22 @@
       <h1 class='noborder title'>Neat Complete Documentation</h1>
       <div id='listing'>
         <h1 class='alphaindex'>Alphabetic Index</h1>
-        <h2>File Listing</h2>
+        <h2>Extra File Listing</h2>
         <ul id='files'>
           <li>
-            <a href="README.md.html" title='README.md'>README.md</a>
+            <a href='README.md.html' title='README.md'>README.md</a>
           </li>
           <li>
-            <a href="LICENSE.md.html" title='LICENSE.md'>LICENSE.md</a>
+            <a href='LICENSE.md.html' title='LICENSE.md'>LICENSE.md</a>
           </li>
         </ul>
-        <h2>Namespace Listing A-Z</h2>
-        <div id='index'>
+        <h2>Class Listing A-Z</h2>
+        <div class='index'>
           <ul>
             <li class='letter'>d</li>
             <ul>
               <li>
-                <a href="classes/NeatComplete/Dispatch.html">Dispatch</a>
+                <a href='classes/NeatComplete/Dispatch.html'>Dispatch</a>
                 <small>
                   (NeatComplete)
                 </small>
@@ -123,7 +128,7 @@
             <li class='letter'>s</li>
             <ul>
               <li>
-                <a href="classes/NeatComplete/Service.html">Service</a>
+                <a href='classes/NeatComplete/Service.html'>Service</a>
                 <small>
                   (NeatComplete)
                 </small>
@@ -134,10 +139,21 @@
             <li class='letter'>w</li>
             <ul>
               <li>
-                <a href="classes/NeatComplete/Widget.html">Widget</a>
+                <a href='classes/NeatComplete/Widget.html'>Widget</a>
                 <small>
                   (NeatComplete)
                 </small>
+              </li>
+            </ul>
+          </ul>
+        </div>
+        <h2>File Listing A-Z</h2>
+        <div class='index'>
+          <ul>
+            <li class='letter'>h</li>
+            <ul>
+              <li>
+                <a href='files/helpers.coffee.html'>helpers.coffee</a>
               </li>
             </ul>
           </ul>
@@ -146,11 +162,11 @@
     </div>
     <div id='footer'>
   Generated on
-  Mon May 28 2012 15:23:50 GMT+1200 (NZST)
+  Tue Apr 02 2013 14:21:48 GMT+1300 (NZDT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
-  v0.7.1
-  (Node.js v0.6.11).
+  v1.6.0
+  (Node.js v0.8.6).
   &#10034;
   Press Ctrl-h to see the keyboard shortcuts
   &#10034;

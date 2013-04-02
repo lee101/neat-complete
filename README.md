@@ -16,16 +16,16 @@ Simple example using jQuery:
     </head>
     <body>
       <input type='text' id='ac_field' />
-      
+
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
       <script type="text/javascript" src='./lib/neat-complete.min.js'></script>
       <script type="text/javascript">
         var widget;
-        
+
         $(document).ready(function(){
           widget = new NeatComplete.Widget(document.getElementById('ac_field'));
           widget.addService('demo',function(){
-            
+
           });
         });
       </script>
@@ -46,46 +46,27 @@ Contributing
     $ brew install node
 ```
 
-* node package manager - http://npmjs.org/
+* grunt - http://gruntjs.com
 
 ```sh
-    $ curl http://npmjs.org/install.sh | sh
-```
-* coffeescript
-
-```sh
-    $ npm install -g coffee-script
-```
-* uglifyjs
-
-```sh
-    $ npm install -g uglify-js
-```
-* sass gem
-
-```sh
-    $ gem install sass
-```
-* codo (for generating docs)
-
-```sh
-    $ npm install -g codo
+    $ npm install -g grunt-cli
+    $ npm install
 ```
 
 ### Development Compiling
 
 ```sh
-    $ cake watch
+    $ grunt dev
 ```
 
 ### Production Compiling
 
 ```sh
-    $ cake build
-```    
+    $ grunt build
+```
 
-### Updating Docs
+### Running Tests
 
 ```sh
-    $ codo
+    $ grunt test
 ```

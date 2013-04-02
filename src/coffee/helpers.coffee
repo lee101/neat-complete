@@ -1,4 +1,3 @@
-
 window.NeatComplete ?= {}
 
 NeatComplete.addDomEvent = (elem,event,fn)->

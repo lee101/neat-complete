@@ -21,7 +21,7 @@ module("Array Search",{
   setup: function(){
     addInputAndWidget();
     widget.addService("mock_array",function(query,response_fn){
-      results = [];
+      var results = [];
       $.each(birds,function(i,bird){
         if (bird.indexOf(query)==0){
           results.push({value:bird,score:10});
@@ -63,7 +63,7 @@ module("Ajax Search",{
     addInputAndWidget();
     widget.addService("mock_ajax",function(query,response_fn){
       $.getJSON("mocks/"+escape(query)+".json",{},function(data){
-        results = $.map(data.results,function(bird){
+        var results = $.map(data.results,function(bird){
           return {value:bird,score:100};
         });
         response_fn(query,results);
@@ -101,14 +101,14 @@ module("Multiple Services",{
     addInputAndWidget();
     widget.addService("mock_ajax",function(query,response_fn){
       $.getJSON("mocks/"+escape(query)+".json",{},function(data){
-        results = $.map(data.results,function(bird){
+        var results = $.map(data.results,function(bird){
           return {value:bird,score:100};
         });
         response_fn(query,results);
       });
     });
     widget.addService("mock_array",function(query,response_fn){
-      results = [];
+      var results = [];
       $.each(birds,function(i,bird){
         if (bird.indexOf(query)==0){
           results.push({value:bird,score:10});
@@ -164,3 +164,7 @@ test("Show error message",function(){
   equal($("li.nc_error", widget.output).text(), "Something went wrong", "should display error message");
   ok($(widget.output).is(":visible"), "output should not be hidden");
 });
+
+// test("Flunk", function(){
+//   ok(false);
+// })

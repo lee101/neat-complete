@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset='UTF-8'>
   <title>Neat Complete Documentation</title>
   <link rel='stylesheet' href='assets/codo.css' type='text/css'>
   <script src='assets/codo.js'></script>
@@ -10,6 +11,8 @@
     <div id='base' data-path=''></div>
 <div id='header'>
   <div id='menu'>
+    <a href='README.md.html' title='Neat_complete'>Neat_complete</a>
+    &raquo;
     <a href='class_index.html' title='Index'>Index</a>
     &raquo;
     <span class='title'>README.md</span>
@@ -22,9 +25,9 @@
     </nav>
     <div id='search'>
       <a id='class_list_link' href='class_list.html'>Classes</a>
-      <a id='mixin_list_link' href='mixin_list.html'>Mixins</a>
-      <a id='method_list_link' href='method_list.html'>Methods</a>
       <a id='file_list_link' href='file_list.html'>Files</a>
+      <a id='method_list_link' href='method_list.html'>Methods</a>
+      <a id='extra_list_link' href='extra_list.html'>Extras</a>
     </div>
   </div>
   <iframe id='search_frame'></iframe>
@@ -64,12 +67,16 @@
         Mixin list
       </li>
       <li>
+        <span>Ctrl-F</span>
+        File list
+      </li>
+      <li>
         <span>Ctrl-M</span>
         Method list
       </li>
       <li>
-        <span>Ctrl-F</span>
-        File list
+        <span>Ctrl-E</span>
+        Extras list
       </li>
     </ul>
     <p>
@@ -108,17 +115,7 @@
         </p>
       </nav>
       <div id='filecontents'>
-        <h1>Neat Complete</h1>
-<p><a href="http://travis-ci.org/AbleTech/neat-complete"><img src="https://secure.travis-ci.org/AbleTech/neat-complete.png?branch=master" alt="Build Status"></a>
-
-</p>
-<p>A light-weight and library-less widget for simple autocompletion.
-
-</p>
-<h2>Integrating</h2>
-<p>Simple example using jQuery:
-</p>
-<pre><code class="lang-html">    &lt;!doctype html&gt;
+        <h1>Neat Complete</h1><p><a href="http://travis-ci.org/AbleTech/neat-complete"><img src="https://secure.travis-ci.org/AbleTech/neat-complete.png?branch=master" alt="Build Status"></a></p><p>A light-weight and library-less widget for simple autocompletion.</p><h2>Integrating</h2><p>Simple example using jQuery:</p><pre><code class="lang-html">    &lt;!doctype html&gt;
     &lt;html&gt;
     &lt;head&gt;
       &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -140,54 +137,33 @@
         });
       &lt;/script&gt;
     &lt;/body&gt;
-    &lt;/html&gt;</code></pre>
-<p>See more <a href="http://abletech.github.com/neat-complete/demo" target="_parent">examples</a>.
-
-
-
-</p>
-<h2>Contributing</h2>
+    &lt;/html&gt;</code></pre><p>See more <a href="http://abletech.github.com/neat-complete/demo" target="_parent">examples</a>.</p><h2>Contributing</h2>
 <h3>Prerequisites</h3>
 <ul>
 <li>node.js - <a href="http://nodejs.org/">http://nodejs.org/</a></li>
 </ul>
 <pre><code class="lang-sh">    $ brew install node</code></pre>
 <ul>
-<li>node package manager - <a href="http://npmjs.org/">http://npmjs.org/</a></li>
+<li>grunt - <a href="http://gruntjs.com">http://gruntjs.com</a></li>
 </ul>
-<pre><code class="lang-sh">    $ curl http://npmjs.org/install.sh | sh</code></pre>
-<ul>
-<li>coffeescript</li>
-</ul>
-<pre><code class="lang-sh">    $ npm install -g coffee-script</code></pre>
-<ul>
-<li>uglifyjs</li>
-</ul>
-<pre><code class="lang-sh">    $ npm install -g uglify-js</code></pre>
-<ul>
-<li>sass gem</li>
-</ul>
-<pre><code class="lang-sh">    $ gem install sass</code></pre>
-<ul>
-<li>codo (for generating docs)</li>
-</ul>
-<pre><code class="lang-sh">    $ npm install -g codo</code></pre>
+<pre><code class="lang-sh">    $ npm install -g grunt-cli
+    $ npm install</code></pre>
 <h3>Development Compiling</h3>
-<pre><code class="lang-sh">    $ cake watch</code></pre>
+<pre><code class="lang-sh">    $ grunt dev</code></pre>
 <h3>Production Compiling</h3>
-<pre><code class="lang-sh">    $ cake build</code></pre>
-<h3>Updating Docs</h3>
-<pre><code class="lang-sh">    $ codo</code></pre>
+<pre><code class="lang-sh">    $ grunt build</code></pre>
+<h3>Running Tests</h3>
+<pre><code class="lang-sh">    $ grunt test</code></pre>
 
       </div>
     </div>
     <div id='footer'>
   Generated on
-  Mon May 28 2012 15:23:50 GMT+1200 (NZST)
+  Tue Apr 02 2013 14:21:48 GMT+1300 (NZDT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
-  v0.7.1
-  (Node.js v0.6.11).
+  v1.6.0
+  (Node.js v0.8.6).
   &#10034;
   Press Ctrl-h to see the keyboard shortcuts
   &#10034;
