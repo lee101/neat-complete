@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset='UTF-8'>
   <title>Neat Complete Documentation</title>
   <link rel='stylesheet' href='../../assets/codo.css' type='text/css'>
   <script src='../../assets/codo.js'></script>
@@ -10,6 +11,8 @@
     <div id='base' data-path='../../'></div>
 <div id='header'>
   <div id='menu'>
+    <a href='../../README.md.html' title='Neat_complete'>Neat_complete</a>
+    &raquo;
     <a href='../../class_index.html' title='Index'>Index</a>
     &raquo;
     <span class='title'>NeatComplete</span>
@@ -24,9 +27,9 @@
     </nav>
     <div id='search'>
       <a id='class_list_link' href='../../class_list.html'>Classes</a>
-      <a id='mixin_list_link' href='../../mixin_list.html'>Mixins</a>
-      <a id='method_list_link' href='../../method_list.html'>Methods</a>
       <a id='file_list_link' href='../../file_list.html'>Files</a>
+      <a id='method_list_link' href='../../method_list.html'>Methods</a>
+      <a id='extra_list_link' href='../../extra_list.html'>Extras</a>
     </div>
   </div>
   <iframe id='search_frame'></iframe>
@@ -66,12 +69,16 @@
         Mixin list
       </li>
       <li>
+        <span>Ctrl-F</span>
+        File list
+      </li>
+      <li>
         <span>Ctrl-M</span>
         Method list
       </li>
       <li>
-        <span>Ctrl-F</span>
-        File list
+        <span>Ctrl-E</span>
+        Extras list
       </li>
     </ul>
     <p>
@@ -106,25 +113,25 @@
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src/coffee/widget.coffee</td>
+          <td>src&#47;coffee&#47;widget.coffee</td>
         </tr>
         <tr>
           <td>Inherits:</td>
           <td>
-            <a href="../../classes/NeatComplete/Dispatch.html">NeatComplete.Dispatch</a>
+            <a href='../../classes/NeatComplete/Dispatch.html'>NeatComplete.Dispatch</a>
           </td>
         </tr>
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>Class for creating new widget </p> 
+  <p>Class for creating new widget</p>
   <div class='examples'>
     <h3>Examples:</h3>
     <h4>
       
     </h4>
-    <pre><code class='coffee'>var widget = new NeatComplete.Widget(document.getElementById(&apos;search_field&apos;));
-widget.addService(&apos;basic&apos;,function(){});</code></pre>
+    <pre><code class='coffee'>var widget = new NeatComplete.Widget(document.getElementById(&#39;search_field&#39;));
+widget.addService(&#39;basic&#39;,function(){});</code></pre>
   </div>
 </div>
 <div class='tags'>
@@ -158,13 +165,13 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
       </h2>
       <h3 class='inherited'>
         Methods inherited from
-        <a href="../../classes/NeatComplete/Dispatch.html">NeatComplete.Dispatch</a>
+        <a href='../../classes/NeatComplete/Dispatch.html'>NeatComplete.Dispatch</a>
       </h3>
       <p class='inherited'>
-                <a href="../../classes/NeatComplete/Dispatch.html#setOption-instance">#setOption</a>,
-                <a href="../../classes/NeatComplete/Dispatch.html#getOption-instance">#getOption</a>,
-                <a href="../../classes/NeatComplete/Dispatch.html#on-instance">#on</a>,
-        <a href="../../classes/NeatComplete/Dispatch.html#trigger-instance">#trigger</a>
+                <a href='../../classes/NeatComplete/Dispatch.html#setOption-instance'>#setOption</a>,
+                <a href='../../classes/NeatComplete/Dispatch.html#getOption-instance'>#getOption</a>,
+                <a href='../../classes/NeatComplete/Dispatch.html#on-instance'>#on</a>,
+        <a href='../../classes/NeatComplete/Dispatch.html#trigger-instance'>#trigger</a>
       </p>
       <h2>Constructor Details</h2>
       <div class='methods'>
@@ -173,7 +180,7 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
       - (NeatComplete.Widget) <strong>constructor</strong>(element, options = {})
     </p>
     <div class='docstring'>
-  <p>Creates a new widget </p> 
+  <p>Creates a new widget</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -197,7 +204,7 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
   </ul>
   <h3>
     Options Hash:
-    (options):
+    (option):
   </h3>
   <ul class='options'>
     <li>
@@ -214,7 +221,7 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
         (<tt>String</tt>)
       </span>
       &mdash;
-      <span class='desc'>CSS class of the rendered <code>ul</code> element (default 'nc_list').</span>
+      <span class='desc'>CSS class of the rendered <code>ul</code> element (default &#39;nc_list&#39;).</span>
     </li>
     <li>
       <span class='name'>item_class</span>
@@ -222,7 +229,7 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
         (<tt>String</tt>)
       </span>
       &mdash;
-      <span class='desc'>CSS class of each <code>li</code> for each result (default 'nc_item').</span>
+      <span class='desc'>CSS class of each <code>li</code> for each result (default &#39;nc_item&#39;).</span>
     </li>
     <li>
       <span class='name'>hover_class</span>
@@ -230,7 +237,7 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
         (<tt>String</tt>)
       </span>
       &mdash;
-      <span class='desc'>CSS class which gets applied to the highlighted <code>li</code> element (default 'nc_hover').</span>
+      <span class='desc'>CSS class which gets applied to the highlighted <code>li</code> element (default &#39;nc_hover&#39;).</span>
     </li>
     <li>
       <span class='name'>footer_content</span>
@@ -246,7 +253,7 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
         (<tt>String</tt>)
       </span>
       &mdash;
-      <span class='desc'>CSS class of the <code>li</code> item displaying the <em>footer_content</em> (default 'nc_footer').</span>
+      <span class='desc'>CSS class of the <code>li</code> item displaying the <em>footer_content</em> (default &#39;nc_footer&#39;).</span>
     </li>
     <li>
       <span class='name'>empty_content</span>
@@ -262,15 +269,14 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
         (<tt>String</tt>)
       </span>
       &mdash;
-      <span class='desc'>CSS class of the <code>li</code> item displaying the <em>empty_content</em> (default 'nc_empty').</span>
+      <span class='desc'>CSS class of the <code>li</code> item displaying the <em>empty_content</em> (default &#39;nc_empty&#39;).</span>
     </li>
   </ul>
   <h3>Returns:</h3>
   <ul class='return'>
     <li>
-      <span class='type'>
-        (<tt><a href='../../classes/NeatComplete/Widget.html'>NeatComplete.Widget</a></tt>)
-      </span>
+      <span class='type'></span>
+      (<tt><a href='../../classes/NeatComplete/Widget.html'>NeatComplete.Widget</a></tt>)
       &mdash;
       <span class='desc'>returns self for chaining</span>
     </li>
@@ -285,7 +291,7 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
       - (NeatComplete.Service) <strong>addService</strong>(name, search_function, options = {})
     </p>
     <div class='docstring'>
-  <p>Add a new service  </p> 
+  <p>Add a new service</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -316,9 +322,8 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
   <h3>Returns:</h3>
   <ul class='return'>
     <li>
-      <span class='type'>
-        (<tt><a href='../../classes/NeatComplete/Service.html'>NeatComplete.Service</a></tt>)
-      </span>
+      <span class='type'></span>
+      (<tt><a href='../../classes/NeatComplete/Service.html'>NeatComplete.Service</a></tt>)
       &mdash;
       <span class='desc'>Service object</span>
     </li>
@@ -329,11 +334,11 @@ widget.addService(&apos;basic&apos;,function(){});</code></pre>
     </div>
     <div id='footer'>
   Generated on
-  Mon May 28 2012 15:23:50 GMT+1200 (NZST)
+  Tue Apr 02 2013 16:01:26 GMT+1300 (NZDT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
-  v0.7.1
-  (Node.js v0.6.11).
+  v1.6.0
+  (Node.js v0.8.6).
   &#10034;
   Press Ctrl-h to see the keyboard shortcuts
   &#10034;

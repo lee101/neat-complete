@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset='UTF-8'>
   <title>Neat Complete Documentation</title>
   <link rel='stylesheet' href='../../assets/codo.css' type='text/css'>
   <script src='../../assets/codo.js'></script>
@@ -10,6 +11,8 @@
     <div id='base' data-path='../../'></div>
 <div id='header'>
   <div id='menu'>
+    <a href='../../README.md.html' title='Neat_complete'>Neat_complete</a>
+    &raquo;
     <a href='../../class_index.html' title='Index'>Index</a>
     &raquo;
     <span class='title'>NeatComplete</span>
@@ -24,9 +27,9 @@
     </nav>
     <div id='search'>
       <a id='class_list_link' href='../../class_list.html'>Classes</a>
-      <a id='mixin_list_link' href='../../mixin_list.html'>Mixins</a>
-      <a id='method_list_link' href='../../method_list.html'>Methods</a>
       <a id='file_list_link' href='../../file_list.html'>Files</a>
+      <a id='method_list_link' href='../../method_list.html'>Methods</a>
+      <a id='extra_list_link' href='../../extra_list.html'>Extras</a>
     </div>
   </div>
   <iframe id='search_frame'></iframe>
@@ -66,12 +69,16 @@
         Mixin list
       </li>
       <li>
+        <span>Ctrl-F</span>
+        File list
+      </li>
+      <li>
         <span>Ctrl-M</span>
         Method list
       </li>
       <li>
-        <span>Ctrl-F</span>
-        File list
+        <span>Ctrl-E</span>
+        Extras list
       </li>
     </ul>
     <p>
@@ -106,13 +113,13 @@
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src/coffee/dispatch.coffee</td>
+          <td>src&#47;coffee&#47;dispatch.coffee</td>
         </tr>
       </table>
       <h2>Direct Known Subclasses</h2>
       <p class='children'>
-                <a href="../../classes/NeatComplete/Service.html">NeatComplete.Service</a>,
-        <a href="../../classes/NeatComplete/Widget.html">NeatComplete.Widget</a>
+                <a href='../../classes/NeatComplete/Service.html'>NeatComplete.Service</a>,
+        <a href='../../classes/NeatComplete/Widget.html'>NeatComplete.Widget</a>
       </p>
       <h2>Instance Method Summary</h2>
       <ul class='summary'>
@@ -164,7 +171,7 @@
       - (void) <strong>setOption</strong>(key, value)
     </p>
     <div class='docstring'>
-  <p>Sets value of option </p> 
+  <p>Sets value of option</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -193,7 +200,7 @@
       - (void) <strong>getOption</strong>(key)
     </p>
     <div class='docstring'>
-  <p>Gets value of option </p> 
+  <p>Gets value of option</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -214,7 +221,7 @@
       - (void) <strong>on</strong>(event_name, callback)
     </p>
     <div class='docstring'>
-  <p>Adds an event listener </p> 
+  <p>Adds an event listener</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -243,7 +250,7 @@
       - (void) <strong>trigger</strong>(event_name, args...)
     </p>
     <div class='docstring'>
-  <p>Manually trigger event </p> 
+  <p>Manually trigger event</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -271,11 +278,11 @@
     </div>
     <div id='footer'>
   Generated on
-  Mon May 28 2012 15:23:50 GMT+1200 (NZST)
+  Tue Apr 02 2013 16:01:26 GMT+1300 (NZDT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
-  v0.7.1
-  (Node.js v0.6.11).
+  v1.6.0
+  (Node.js v0.8.6).
   &#10034;
   Press Ctrl-h to see the keyboard shortcuts
   &#10034;

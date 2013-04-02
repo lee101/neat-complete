@@ -5,7 +5,4 @@ language: node_js
 node_js:
   - 0.7
 before_script:
-  - npm install connect
-  - sudo node test/ci/server.js &
-  - sleep 5
-script: phantomjs test/ci/run-qunit.js 'http://localhost:80/test/index.html'
+  - npm install -g grunt-cli
