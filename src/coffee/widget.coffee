@@ -134,9 +134,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
       when 37,39,13
       else
         clearTimeout(@_timeout) if @_timeout?
-        @_timeout = setTimeout(=>
-          @_getSuggestions()
-        ,400)
+        @_timeout = setTimeout @_getSuggestions, 400
 
   # @private
   _onBlur: (e)=>
@@ -158,7 +156,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @element.value = if @highlighted? then @highlighted.value else @_val
 
   # @private
-  _getSuggestions: ->
+  _getSuggestions: =>
     return unless @enabled
     @_val = @element.value
     @error_content = null
