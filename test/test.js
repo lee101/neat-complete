@@ -57,6 +57,19 @@ test("Show no matches",function(){
   ok($(widget.output).is(":hidden"), "output should be hidden");
 });
 
+test("Disable/Enable Widget", function(){
+  widget.disable();
+  input.value = "k";
+  widget._getSuggestions();
+  equal($("li.nc_item",widget.output).length, 0, "should show no results");
+  ok($(widget.output).is(":hidden"), "output should be hidden");
+
+  widget.enable();
+  widget._getSuggestions();
+  equal($("li.nc_item",widget.output).length, 3, "should show 3 results");
+});
+
+
 
 module("Ajax Search",{
   setup:function(){

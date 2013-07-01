@@ -8,6 +8,12 @@ NeatComplete.addDomEvent = (elem,event,fn)->
   else
     elem.addEventListener event, fn, false
 
+NeatComplete.removeDomEvent = (elem, event, fn)->
+  if elem.detachEvent?
+    elem.detachEvent "on#{event}", elem["#{event}#{fn}"]
+  else
+    elem.removeEventListener event, fn, false
+
 unless Array::indexOf
   Array::indexOf = (searchElement) ->
     throw new TypeError()  unless this?

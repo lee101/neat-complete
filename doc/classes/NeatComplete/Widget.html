@@ -159,6 +159,36 @@ widget.addService(&#39;basic&#39;,function(){});</code></pre>
       Add a new service
     </span>
   </li>
+  <li>
+    <span class='signature'>
+      <a href='#disable-instance'>
+        - (NeatComplete.Widget) <strong>disable</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Disable widget
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#enable-instance'>
+        - (NeatComplete.Widget) <strong>enable</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Enable widget
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#destroy-instance'>
+        - (void) <strong>destroy</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Removes all event listeners and returns input to original state.
+    </span>
+  </li>
 </ul>
       <h2>
         <small>Inherited Method Summary</small>
@@ -271,6 +301,14 @@ widget.addService(&#39;basic&#39;,function(){});</code></pre>
       &mdash;
       <span class='desc'>CSS class of the <code>li</code> item displaying the <em>empty_content</em> (default &#39;nc_empty&#39;).</span>
     </li>
+    <li>
+      <span class='name'>position</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>CSS positioning style (eg. &#39;fixed&#39;, &#39;absolute&#39;) (default &#39;absolute&#39;).</span>
+    </li>
   </ul>
   <h3>Returns:</h3>
   <ul class='return'>
@@ -330,11 +368,59 @@ widget.addService(&#39;basic&#39;,function(){});</code></pre>
   </ul>
 </div>
   </div>
+  <div class='method_details'>
+    <p class='signature' id='disable-instance'>
+      - (NeatComplete.Widget) <strong>disable</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Disable widget</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt><a href='../../classes/NeatComplete/Widget.html'>NeatComplete.Widget</a></tt>)
+      &mdash;
+      <span class='desc'>returns self for chaining</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='enable-instance'>
+      - (NeatComplete.Widget) <strong>enable</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Enable widget</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt><a href='../../classes/NeatComplete/Widget.html'>NeatComplete.Widget</a></tt>)
+      &mdash;
+      <span class='desc'>returns self for chaining</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='destroy-instance'>
+      - (void) <strong>destroy</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Removes all event listeners and returns input to original state.</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
 </div>
     </div>
     <div id='footer'>
   Generated on
-  Tue Apr 02 2013 16:01:26 GMT+1300 (NZDT)
+  Mon Jul 01 2013 14:20:36 GMT+1200 (NZST)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.6.0

@@ -21,8 +21,10 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   # @option options [String] footer_class CSS class of the <code>li</code> item displaying the <em>footer_content</em> (default 'nc_footer').
   # @option options [String] empty_content HTML content that can be displayed when there are no results.
   # @option options [String] empty_class CSS class of the <code>li</code> item displaying the <em>empty_content</em> (default 'nc_empty').
+  # @option options [String] position CSS positioning style (eg. 'fixed', 'absolute') (default 'absolute').
   #
   constructor: (@element,@options={}) ->
+    @enabled = true
     @element.setAttribute 'autocomplete','off'
     @services = []
     @_applyDefaults()
@@ -30,7 +32,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @output = document.createElement("ul")
     @output.className = @options.list_class
     @_applyStyle "display",  "none"
-    @_applyStyle "position", "absolute"
+    @_applyStyle "position", @options.position
     document.body.appendChild @output
     @
 
@@ -42,6 +44,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     footer_class: 'nc_footer'
     empty_class : 'nc_empty'
     error_class : 'nc_error'
+    position    : 'absolute'
 
 
   # Add a new service
@@ -53,6 +56,27 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @services.push(service = new NeatComplete.Service(this,name,search_function,options))
     service
 
+  # Disable widget
+  # @return [NeatComplete.Widget] returns self for chaining
+  disable: ->
+    @enabled = false
+    @
+
+  # Enable widget
+  # @return [NeatComplete.Widget] returns self for chaining
+  enable: ->
+    @enabled = true
+    @
+
+
+  # Removes all event listeners and returns input to original state.
+  destroy: ->
+    document.body.removeChild(@output)
+    @element.removeAttribute "autocomplete"
+    return
+
+
+
   # @private
   _applyDefaults: ->
     for key, value of @defaults
@@ -60,43 +84,65 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
 
   # @private
   _addListeners: ->
-    NeatComplete.addDomEvent @element, "focus", (e)=>
-      @focused = true
+    NeatComplete.addDomEvent @element, "focus", @_onFocus
 
-    NeatComplete.addDomEvent @element, "keypress", (e)=>
-      keyCode = e.which || e.keyCode
-      if @visible and keyCode is 13
-        @highlighted?.selectItem()
-        if e.preventDefault
-          e.preventDefault()
-        else
-          e.returnValue = false
+    NeatComplete.addDomEvent @element, "keypress", @_onKeyPress
+
+    NeatComplete.addDomEvent @element, "keydown", @_onKeyDown
+
+    NeatComplete.addDomEvent @element, "blur", @_onBlur
+
+  # @private
+  _removeListeners: ->
+    NeatComplete.removeDomEvent @element, "focus", @_onFocus
+
+    NeatComplete.removeDomEvent @element, "keypress", @_onKeyPress
+
+    NeatComplete.removeDomEvent @element, "keydown", @_onKeyDown
+
+    NeatComplete.removeDomEvent @element, "blur", @_onBlur
+
+  # @private
+  _onFocus: (e)=>
+    @focused = true
+
+  # @private
+  _onKeyPress: (e)=>
+    keyCode = e.which || e.keyCode
+    if @visible and keyCode is 13
+      @highlighted?.selectItem()
+      if e.preventDefault
+        e.preventDefault()
+      else
+        e.returnValue = false
+      false
+
+  # @private
+  _onKeyDown: (e)=>
+    keyCode = e.which || e.keyCode
+    switch keyCode
+      when 38
+        @_moveHighlight(-1) if @visible
         false
-
-    NeatComplete.addDomEvent @element, "keydown", (e)=>
-      keyCode = e.which || e.keyCode
-      switch keyCode
-        when 38
-          @_moveHighlight(-1) if @visible
-          false
-        when 40
-          @_moveHighlight(1) if @visible
-          false
-        when 9
-          @highlighted?.selectItem() if @visible
-        when 27
-          @_hideResults()
-        when 37,39,13
-        else
-          clearTimeout(@_timeout) if @_timeout?
-          @_timeout = setTimeout(=>
-            @_getSuggestions()
-          ,400)
-
-    NeatComplete.addDomEvent @element, "blur", (e)=>
-      unless @mouseDownOnSelect
-        @focused = false
+      when 40
+        @_moveHighlight(1) if @visible
+        false
+      when 9
+        @highlighted?.selectItem() if @visible
+      when 27
         @_hideResults()
+      when 37,39,13
+      else
+        clearTimeout(@_timeout) if @_timeout?
+        @_timeout = setTimeout(=>
+          @_getSuggestions()
+        ,400)
+
+  # @private
+  _onBlur: (e)=>
+    unless @mouseDownOnSelect
+      @focused = false
+      @_hideResults()
 
   # @private
   _moveHighlight: (step) ->
@@ -113,6 +159,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
 
   # @private
   _getSuggestions: ->
+    return unless @enabled
     @_val = @element.value
     @error_content = null
     unless @_val is ''
