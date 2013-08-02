@@ -1,4 +1,4 @@
-Copyright 2012 Able Technology Consulting Ltd.
+Copyright 2012 Abletech Limited.
 
 Licensed under the GNU Affero General Public License, version 3 (the "License");
 you may not use this file except in compliance with the License.
