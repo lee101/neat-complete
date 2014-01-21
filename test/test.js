@@ -69,6 +69,12 @@ test("Disable/Enable Widget", function(){
   equal($("li.nc_item",widget.output).length, 3, "should show 3 results");
 });
 
+test("Append to body by default", function(){
+  input.value = "k";
+  widget._getSuggestions();
+  equal(widget.output.parentElement, document.body, "should be appended to body")
+});
+
 asyncTest("Trigger 'results:empty'", function(){
   input.value = "asdf";
   widget.on("results:empty", function(){

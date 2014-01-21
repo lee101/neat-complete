@@ -33,7 +33,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @output.className = @options.list_class
     @_applyStyle "display",  "none"
     @_applyStyle "position", @options.position
-    document.body.appendChild @output
+    @options.container.appendChild @output
     @
 
   defaults:
@@ -45,6 +45,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     empty_class : 'nc_empty'
     error_class : 'nc_error'
     position    : 'absolute'
+    container   : document.body
 
 
   # Add a new service
@@ -195,8 +196,9 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   _displayResults: ->
     @visible = true
     coords = @_getPosition()
-    @_applyStyle "left", "#{coords.left}px"
-    @_applyStyle "top", "#{coords.top}px"
+    if @options.container == document.body
+      @_applyStyle "left", "#{coords.left}px"
+      @_applyStyle "top", "#{coords.top}px"
     @_applyStyle "display", "block"
 
   # @private
