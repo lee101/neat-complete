@@ -247,7 +247,9 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
         @output.appendChild(@_renderEmpty())
         @_displayResults()
         @trigger "results:empty"
-      else @_hideResults()
+      else
+        @_hideResults()
+        @trigger "results:empty"
 
       @trigger "results:update"
     return
