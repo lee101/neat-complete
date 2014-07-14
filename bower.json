@@ -1,0 +1,21 @@
+{
+  "name": "neat_complete",
+  "version": "1.1.1",
+  "homepage": "http://abletech.github.io/neat-complete/",
+  "authors": [
+    "Cameron Prebble <cameron.prebble@abletech.co.nz>"
+  ],
+  "main": "lib/neat_complete.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "autosuggest",
+    "vanilla"
+  ],
+  "license": "AGPL",
+  "devDependencies": {
+    "jquery": "~1.11",
+    "qunit": "~1.14.0"
+  }
+}
