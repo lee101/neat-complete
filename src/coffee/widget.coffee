@@ -22,6 +22,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   # @option options [String] empty_content HTML content that can be displayed when there are no results.
   # @option options [String] empty_class CSS class of the <code>li</code> item displaying the <em>empty_content</em> (default 'nc_empty').
   # @option options [String] position CSS positioning style (eg. 'fixed', 'absolute') (default 'absolute').
+  # @option options [HTMLElement] container The DOM element to attach the results list to (default 'document.body').
   #
   constructor: (@element,@options={}) ->
     @enabled = true
@@ -261,4 +262,3 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @_hideResults()
     @trigger "result:select", @highlighted.value, @highlighted.data
     return
-

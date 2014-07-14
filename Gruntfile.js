@@ -83,8 +83,8 @@ module.exports = function(grunt) {
     }
   });
   // Default task(s).
-  grunt.registerTask('dev', ['connect','watch']);
+  grunt.registerTask('serve', ['connect','watch']);
   grunt.registerTask('test',['connect', 'qunit']);
-  grunt.registerTask('build', ['coffee', 'test', 'shell:codo', 'uglify'])
+  grunt.registerTask('default', ['coffee', 'test', 'shell:codo', 'uglify'])
 
 };
