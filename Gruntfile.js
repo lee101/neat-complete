@@ -6,14 +6,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-preprocess');
   grunt.loadNpmTasks('grunt-shell');
 
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    banner: '// Neat Complete v<%= pkg.version %> \n//\n// (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %> \n// <%= pkg.license %>\n',
     watch: [{
       files: "src/coffee/*.coffee",
-      tasks: 'coffee'
+      tasks: ['preprocess', 'coffee']
     },{
       files: "src/scss/*.scss",
       tasks: "sass"
@@ -46,15 +48,25 @@ module.exports = function(grunt) {
       }
     },
     coffee:{
-      dev: {
+      core: {
+        options:{
+          // bare: true
+        },
         files:{
-          "lib/<%= pkg.name %>.js": "src/coffee/*.coffee"
+          "lib/<%= pkg.name %>.js": "tmp/coffee/neat_complete.coffee"
         }
+      }
+    },
+    preprocess:{
+      core:{
+        src: "src/coffee/core.coffee",
+        dest: "tmp/coffee/neat_complete.coffee"
       }
     },
     uglify: {
       options: {
-        banner: '// <%= pkg.name %> v<%= pkg.version %> \n//\n// (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %> \n// <%= pkg.license %>\n'
+        banner: '<%= banner %>',
+        sourceMap: true
       },
       build: {
         src:  'lib/<%= pkg.name %>.js',

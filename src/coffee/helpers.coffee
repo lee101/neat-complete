@@ -1,5 +1,3 @@
-window.NeatComplete ?= {}
-
 NeatComplete.addDomEvent = (elem,event,fn)->
   if elem.attachEvent?
     elem["e#{event}#{fn}"] = fn

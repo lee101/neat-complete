@@ -1,5 +1,3 @@
-window.NeatComplete ?= {}
-
 class NeatComplete.Dispatch
 
   # Sets value of option
@@ -32,4 +30,3 @@ class NeatComplete.Dispatch
         `callback.apply(this, args)` #coffeescript does something funky when trying to call the apply method
 
     @
-

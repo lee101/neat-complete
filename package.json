@@ -13,20 +13,21 @@
     "type": "git",
     "url": "git://github.com/AbleTech/neat-complete.git"
   },
-  "author": "Able Technology Consulting Ltd.",
+  "author": "Abletech Ltd.",
   "license": "http://abletech.github.com/neat-complete/doc/LICENSE.md.html",
   "readmeFilename": "README.md",
   "gitHead": "e0c93e48a2be88e8a55a981030c96c9e27e3c92f",
   "devDependencies": {
-    "phantomjs": "1.8.1-1",
+    "codo": "~1.6.0",
     "grunt": "~0.4.1",
     "grunt-contrib-coffee": "~0.6.4",
-    "grunt-contrib-watch": "~0.3.1",
-    "grunt-contrib-uglify": "~0.2.0",
-    "grunt-contrib-sass": "~0.3.0",
-    "grunt-contrib-qunit": "~0.2.0",
     "grunt-contrib-connect": "~0.2.0",
-    "codo": "~1.6.0",
-    "grunt-shell": "~0.2.1"
+    "grunt-contrib-qunit": "~0.2.0",
+    "grunt-contrib-sass": "~0.3.0",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-preprocess": "^4.0.0",
+    "grunt-shell": "~0.2.1",
+    "phantomjs": "1.8.1-1"
   }
 }

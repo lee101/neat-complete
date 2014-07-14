@@ -3,6 +3,6 @@ notifications:
     - cameron.d.prebble@gmail.com
 language: node_js
 node_js:
-  - 0.7
+  - "0.10"
 before_script:
   - npm install -g grunt-cli

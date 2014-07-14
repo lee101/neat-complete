@@ -1,10 +1,8 @@
-window.NeatComplete ?= {}
-
 class NeatComplete.Service extends NeatComplete.Dispatch
 
   # @private
   constructor: (@widget, @name, @search_fn, @options={}) ->
-    @results = []    
+    @results = []
     @response = (q,data)=>
       @_response.apply(@,arguments)
 
