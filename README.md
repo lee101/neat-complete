@@ -61,13 +61,13 @@ Contributing
 ### Development Compiling
 
 ```sh
-    $ grunt dev
+    $ grunt serve
 ```
 
 ### Production Compiling
 
 ```sh
-    $ grunt build
+    $ grunt
 ```
 
 ### Running Tests
