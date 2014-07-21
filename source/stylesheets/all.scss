@@ -4,7 +4,7 @@ $brand-primary: #1698ba;
 $navbar-default-bg: $brand-primary;
 $navbar-default-color: #eee;
 $navbar-default-link-color: #fff;
-$tooltip-bg: darken($brand-primary, 5%);
+$tooltip-bg: darken($brand-primary, 10%);
 $tooltip-opacity: 1;
 
 @import 'bootstrap';
