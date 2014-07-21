@@ -1,6 +1,6 @@
 --readme     README.md
 --title      "Neat Complete Documentation"
 --output-dir ./doc
-./tmp/coffee
+./src/coffee
 -
 LICENSE.md
