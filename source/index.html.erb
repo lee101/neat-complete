@@ -1,0 +1,51 @@
+---
+title: Neat Complete
+---
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-4">
+        <h1>Neat<br>Complete</h1>
+      </div>
+      <div class="col-md-8">
+        <p>A Lightweight, Vanilla JavaScript library for simple autosuggest.</p>
+        <form action="#" role='form' class="form-inline">
+          <div class="form-group">
+            <label for="location">Give it a go:</label>
+            <input type="search" id='location' name="location" class='form-control' placeholder='Start typing your town...' autofocus value="">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="well">
+        <h4>Lightweight</h4>
+        <p><small>At under 10kb minified, Neat Complete won't bloat your project.</small></p>
+        <%= link_to icon('github', 'View on Github'), 'https://github.com/AbleTech/neat-complete', class: 'btn btn-primary pull-right' %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+        <h4>Vanilla</h4>
+        <p><small>Neat Complete isn't dependent on libraries, so it should play nicely if you're using jQuery, Prototype, etc...</small></p>
+        <%= link_to icon('codepen', 'View some demos'), 'http://codepen.io/collection/DcHCj/', class: 'btn btn-primary pull-right' %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+        <h4>Configurable</h4>
+        <p><small>You can choose where the data comes from, how it's parsed, even configure the styles.</small></p>
+        <%= link_to icon('file-code-o', 'View the docs'), 'http://coffeedoc.info/github/AbleTech/neat-complete/master/', class: 'btn btn-primary pull-right' %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+<%= javascript_include_tag 'vendor', 'neat-complete', 'demo'  %>
