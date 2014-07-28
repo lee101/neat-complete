@@ -37,7 +37,7 @@ Simple example using jQuery:
     </body>
     </html>
 ```
-See more <a href="http://abletech.github.com/neat-complete/demo" target="_parent">examples</a>.
+See more <a href="//abletech.github.io/neat-complete/" target="_parent">examples</a>.
 
 
 
