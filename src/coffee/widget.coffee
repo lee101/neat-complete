@@ -76,10 +76,6 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @element.removeAttribute "autocomplete"
     return
 
-
-  _getContainer: ->
-
-
   # @private
   _applyDefaults: ->
     for key, value of @defaults
