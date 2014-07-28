@@ -29,6 +29,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @element.setAttribute 'autocomplete','off'
     @services = []
     @_applyDefaults()
+    @setOption('container', window.document.body) unless @getOption('container')?
     @_addListeners()
     @output = document.createElement("ul")
     @output.className = @options.list_class
@@ -46,8 +47,6 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     empty_class : 'nc_empty'
     error_class : 'nc_error'
     position    : 'absolute'
-    container   : document.body
-
 
   # Add a new service
   # @param [string] name of service
@@ -77,6 +76,8 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @element.removeAttribute "autocomplete"
     return
 
+
+  _getContainer: ->
 
 
   # @private
