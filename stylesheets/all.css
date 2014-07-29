@@ -8662,14 +8662,22 @@ button.close {
   content: "\f1e2"; }
 
 /* line 13, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
-.jumbotron h1 {
-  margin: 0; }
+body {
+  font-weight: 300; }
 
 /* line 17, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
+.jumbotron h1 {
+  margin-top: 0; }
+
+/* line 21, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
 footer {
   padding: 15px 0; }
 
-/* line 21, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
+/* line 25, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
+ul.nc_list li.nc_item, ul.nc_list li.nc_empty, ul.nc_list li.nc_footer {
+  padding: 3px 12px; }
+
+/* line 29, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
 ul.nc_list {
   list-style: none;
   padding: 0;
@@ -8677,13 +8685,16 @@ ul.nc_list {
   border: solid 1px #cccccc;
   background: white;
   border-radius: 4px; }
-
-/* line 30, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
-ul.nc_list li.nc_item {
-  cursor: pointer;
-  padding: 3px 12px; }
-
-/* line 35, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
-ul.nc_list li.nc_item.nc_hover {
-  background-color: #1698ba;
-  color: white; }
+  /* line 36, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
+  ul.nc_list li.nc_item {
+    cursor: pointer; }
+    /* line 39, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
+    ul.nc_list li.nc_item.nc_hover {
+      background-color: #1698ba;
+      color: white; }
+  /* line 47, /Users/cameron/Sites/abletech/addressfinder/neat_complete/source/stylesheets/all.scss */
+  ul.nc_list li.nc_footer {
+    border-top: solid 1px #ccc;
+    font-size: 0.8em;
+    text-align: right;
+    color: #999; }

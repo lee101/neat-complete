@@ -18,7 +18,7 @@
         <div class="navbar-header">
           <strong><a class="navbar-brand" href="/">Neat Complete</a></strong>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right hidden-xs">
           <li>
             <a title="Fork on GitHub" data-toggle="tooltip" data-placement="bottom" href="https://github.com/AbleTech/neat-complete"><i class="fa fa-github"></i></a>
           </li>
@@ -32,56 +32,49 @@
       </div>
     </nav>
     <div class="container">
-  <div class="jumbotron">
-    <div class="row">
-      <div class="col-md-4">
-        <h1>Neat<br>Complete</h1>
-      </div>
-      <div class="col-md-8">
-        <p>A Lightweight, Vanilla JavaScript library for simple autosuggest.</p>
-        <form action="#" role='form' class="form-inline">
-          <div class="form-group">
-            <label for="location">Give it a go:</label>
-            <input type="search" id='location' name="location" class='form-control' placeholder='Start typing your town...' autofocus value="">
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="well">
-        <h4>Lightweight</h4>
-        <p><small>At under 10kb minified, Neat Complete won't bloat your project.</small></p>
-        <a class="btn btn-primary pull-right" href="https://github.com/AbleTech/neat-complete"><i class="fa fa-github"></i> View on Github</a>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="well">
-        <h4>Vanilla</h4>
-        <p><small>Neat Complete isn't dependent on libraries, so it should play nicely if you're using jQuery, Prototype, etc...</small></p>
-        <a class="btn btn-primary pull-right" href="http://codepen.io/collection/DcHCj/"><i class="fa fa-codepen"></i> View some demos</a>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="well">
-        <h4>Configurable</h4>
-        <p><small>You can choose where the data comes from, how it's parsed, even configure the styles.</small></p>
-        <a class="btn btn-primary pull-right" href="http://coffeedoc.info/github/AbleTech/neat-complete/master/"><i class="fa fa-file-code-o"></i> View the docs</a>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </div>
+      <div class="jumbotron text-center">
+  <h1>Neat Complete</h1>
+  <p>A Lightweight, Vanilla JavaScript library for simple autosuggest.</p>
   <hr>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <form action="#" role='form'>
+        <label for="location" class='control-label'>Give it a go:</label>
+        <input type="search" id='location' name="location" class='form-control' placeholder='Start typing the name of your town...' autofocus value="">
+      </form>
+    </div>
+  </div>
 </div>
-<script src="javascripts/vendor.js" type="text/javascript"></script><script src="javascripts/neat-complete.js" type="text/javascript"></script><script src="javascripts/demo.js" type="text/javascript"></script>
 
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <h4 class='text-center'>Lightweight</h4>
+    <p>At under 10kb minified, Neat Complete won't bloat your project.</p>
+    <a class="btn btn-primary btn-block" href="https://github.com/AbleTech/neat-complete"><i class="fa fa-github"></i> View on Github</a>
+  </div>
+  <div class="col-sm-4">
+    <h4 class='text-center'>Vanilla</h4>
+    <p>Neat Complete isn't dependent on libraries, so it should play nicely with jQuery, Prototype, etc...</p>
+    <a class="btn btn-primary btn-block" href="http://codepen.io/collection/DcHCj/"><i class="fa fa-codepen"></i> View some demos</a>
+  </div>
+  <div class="col-sm-4">
+    <h4 class='text-center'>Configurable</h4>
+    <p>You can choose where the data comes from, how it's parsed, even configure the styles.</p>
+    <a class="btn btn-primary btn-block" href="http://coffeedoc.info/github/AbleTech/neat-complete/master/"><i class="fa fa-file-code-o"></i> View the docs</a>
+  </div>
+</div>
+
+      <hr>
+    </div>
 
     <footer>
       <p class='text-center'>&copy; 2014 <a href="http://abletech.co.nz">Abletech</a></p>
     </footer>
+
+    <script src="javascripts/vendor.js" type="text/javascript"></script>
+      <script src="javascripts/neat-complete.js" type="text/javascript"></script><script src="javascripts/demo.js" type="text/javascript"></script>
+
   </body>
 </html>
