@@ -49,9 +49,6 @@ module.exports = function(grunt) {
     },
     coffee:{
       core: {
-        options:{
-          // bare: true
-        },
         files:{
           "lib/<%= pkg.name %>.js": "tmp/coffee/neat_complete.coffee"
         }
@@ -72,19 +69,11 @@ module.exports = function(grunt) {
         src:  'lib/<%= pkg.name %>.js',
         dest: 'lib/<%= pkg.name %>.min.js'
       }
-    },
-    shell:{
-      codo: {
-        command: "node_modules/codo/bin/codo",
-        options: {
-            stdout: true
-        }
-      }
     }
   });
   // Default task(s).
   grunt.registerTask('serve', ['connect','watch']);
   grunt.registerTask('test',['connect', 'qunit']);
-  grunt.registerTask('default', ['coffee', 'test', 'shell:codo', 'uglify'])
+  grunt.registerTask('default', ['coffee', 'test', 'uglify'])
 
 };
