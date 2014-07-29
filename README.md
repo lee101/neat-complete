@@ -8,37 +8,36 @@ Integrating
 -----------
 Simple example using jQuery:
 ```html
-    <!doctype html>
-    <html>
-    <head>
-      <meta charset="utf-8">
-      <link href="./lib/neat_complete.css" rel='stylesheet'>
-    </head>
-    <body>
-      <input type='text' id='ac_field' />
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="./lib/neat_complete.css" rel='stylesheet'>
+</head>
+<body>
+  <input type='text' id='ac_field' />
 
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-      <script type="text/javascript" src='./lib/neat-complete.min.js'></script>
-      <script type="text/javascript">
-        var widget;
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src='./lib/neat-complete.min.js'></script>
+  <script type="text/javascript">
+    var widget;
 
-        $(document).ready(function(){
-          widget = new NeatComplete.Widget(document.getElementById('ac_field'));
-          widget.addService('demo',function(query, callback_fn){
-            $.getJSON("/path/to/service.json", function(data){
-              var results = $.map(data, function(result){
-                return { value: result.name, data: result }
-              });
-              callback_fn(query, results);
-            });
+    $(document).ready(function(){
+      widget = new NeatComplete.Widget(document.getElementById('ac_field'));
+      widget.addService('demo',function(query, callback_fn){
+        $.getJSON("/path/to/service.json", function(data){
+          var results = $.map(data, function(result){
+            return { value: result.name, data: result }
           });
+          callback_fn(query, results);
         });
-      </script>
-    </body>
-    </html>
+      });
+    });
+  </script>
+</body>
+</html>
 ```
-See more <a href="//abletech.github.io/neat-complete/" target="_parent">examples</a>.
-
+See more [examples](http://abletech.github.io/neat-complete/).
 
 
 Contributing
@@ -47,31 +46,30 @@ Contributing
 
 * node.js - http://nodejs.org/
 
-```sh
-    $ brew install node
-```
+* grunt - http://gruntjs.com/
 
-* grunt - http://gruntjs.com
+* bower - http://bower.io/
 
+### Setup
 ```sh
-    $ npm install -g grunt-cli
-    $ npm install
+$ npm install
+$ bower install
 ```
 
 ### Development Compiling
 
 ```sh
-    $ grunt serve
+$ grunt serve
 ```
 
 ### Production Compiling
 
 ```sh
-    $ grunt
+$ grunt
 ```
 
 ### Running Tests
 
 ```sh
-    $ grunt test
+$ grunt test
 ```
