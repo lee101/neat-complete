@@ -28,6 +28,14 @@
     "grunt-contrib-watch": "~0.3.1",
     "grunt-preprocess": "^4.0.0",
     "grunt-shell": "~0.2.1",
+    "gulp": "^3.8.6",
+    "gulp-coffee": "^2.1.1",
+    "gulp-preprocess": "^1.1.1",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^0.7.2",
+    "gulp-sourcemaps": "^1.1.0",
+    "gulp-uglify": "^0.3.1",
+    "gulp-util": "^3.0.0",
     "phantomjs": "1.8.1-1"
   }
 }
