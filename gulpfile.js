@@ -6,7 +6,14 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
     qunit = require('gulp-qunit'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    header = require('gulp-header');
+
+var pkg = require('./package.json');
+var banner = ['/** Neat Complete v<%= pkg.version %>',
+              ' * (c) <%= new Date().getFullYear() %> <%= pkg.author %>',
+              ' * <%= pkg.license %>',
+              ' */\n'].join('\n')
 
 /* Main coffescript build task. Combines coffeescript files, compiles them, then
 uglifies the compiled file  */
@@ -15,8 +22,10 @@ gulp.task('coffee', function(){
     .pipe(preprocess())
     .pipe(coffee().on('error', gutil.log))
     .pipe(rename('neat_complete.js'))
+    .pipe(header(banner,{pkg: pkg}))
     .pipe(gulp.dest('./lib/'))
     .pipe(uglify())
+    .pipe(header(banner,{pkg: pkg}))
     .pipe(rename('neat_complete.min.js'))
     .pipe(gulp.dest('./lib/'));
 });
