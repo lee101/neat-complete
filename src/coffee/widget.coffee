@@ -31,12 +31,12 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @_applyDefaults()
     @setOption('container', window.document.body) unless @getOption('container')?
     @_addListeners()
-    @_applyPlugins()
     @output = document.createElement("ul")
     @output.className = @options.list_class
     @_applyStyle "display",  "none"
     @_applyStyle "position", @options.position
     @options.container.appendChild @output
+    @_applyPlugins()
     @
 
   defaults:
