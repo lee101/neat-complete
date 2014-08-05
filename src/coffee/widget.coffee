@@ -31,6 +31,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     @_applyDefaults()
     @setOption('container', window.document.body) unless @getOption('container')?
     @_addListeners()
+    @_applyPlugins()
     @output = document.createElement("ul")
     @output.className = @options.list_class
     @_applyStyle "display",  "none"
@@ -47,6 +48,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     empty_class : 'nc_empty'
     error_class : 'nc_error'
     position    : 'absolute'
+    plugins     : []
 
   # Add a new service
   # @param [string] name of service
@@ -75,6 +77,12 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     document.body.removeChild(@output)
     @element.removeAttribute "autocomplete"
     return
+
+
+  # @private
+  _applyPlugins: ->
+    for plugin in @options.plugins
+      plugin(@)
 
   # @private
   _applyDefaults: ->
