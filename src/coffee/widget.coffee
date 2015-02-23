@@ -22,6 +22,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
   # @option options [String] empty_content HTML content that can be displayed when there are no results.
   # @option options [String] empty_class CSS class of the <code>li</code> item displaying the <em>empty_content</em> (default 'nc_empty').
   # @option options [String] position CSS positioning style (eg. 'fixed', 'absolute') (default 'absolute').
+  # @option options [Boolean] ignore_returns Ignore the use of the enter key when no list item is selected (default true).
   # @option options [HTMLElement] container The DOM element to attach the results list to (default 'document.body').
   #
   constructor: (@element,@options={}) ->
@@ -47,6 +48,7 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     empty_class : 'nc_empty'
     error_class : 'nc_error'
     position    : 'absolute'
+    ignore_returns : true
 
   # Add a new service
   # @param [string] name of service
@@ -110,9 +112,10 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
     keyCode = e.which || e.keyCode
     if @visible and keyCode is 13
       @highlighted?.selectItem()
-      if e.preventDefault
+      ignore_returns = @getOption("ignore_returns")
+      if ignore_returns and e.preventDefault
         e.preventDefault()
-      else
+      else if ignore_returns
         e.returnValue = false
       false
 
