@@ -1,6 +1,6 @@
 {
   "name": "neat_complete",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A light-weight and library-less widget for simple autocompletion.",
   "scripts": {
     "test": "gulp test"
