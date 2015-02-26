@@ -46,7 +46,7 @@ Contributing
 
 * node.js - http://nodejs.org/
 
-* grunt - http://gruntjs.com/
+* gulp - http://gulpjs.com/
 
 * bower - http://bower.io/
 
@@ -59,17 +59,25 @@ $ bower install
 ### Development Compiling
 
 ```sh
-$ grunt serve
+$ gulp serve
 ```
 
 ### Production Compiling
 
 ```sh
-$ grunt
+$ gulp
 ```
 
 ### Running Tests
 
 ```sh
-$ grunt test
+$ gulp test
 ```
+
+### Deploying to Rails Assets
+1. Create a release on github, tagged with the version number
+2. Bower will automatically pick up the new version
+3. Make the new version available to Bundler by entering it on https://rails-assets.org/components/new
+
+### Documentation
+Hosted on: http://coffeedoc.info/github/AbleTech/neat-complete/master/

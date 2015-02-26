@@ -117,7 +117,6 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
         e.preventDefault()
       else if ignore_returns
         e.returnValue = false
-      false
 
   # @private
   _onKeyDown: (e)=>
