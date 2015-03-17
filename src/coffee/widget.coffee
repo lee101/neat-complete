@@ -157,13 +157,11 @@ class NeatComplete.Widget extends NeatComplete.Dispatch
 
     @results[current_index]?.highlight()
     if current_index == -1
-
       @element.focus()
       self = @
       window.setTimeout(() ->
         self.element.select()
         self.element.value = if self.highlighted? then self.highlighted.value else self._val
-
       , 10)
       return
 
